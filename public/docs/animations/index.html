@@ -38,8 +38,9 @@ Quick Start If your animation only plays once when called, i.e. attacks or getti
 Quick Start If your animation only plays once when called, i.e. attacks or getting hit, use [animation montages](#Animation Montages). If your animation loops until something changes, i.e. running or dying, use [ABP state machines](#State Machines).">
   <meta itemprop="datePublished" content="2025-07-17T18:33:15+00:00">
   <meta itemprop="dateModified" content="2026-01-04T15:41:27+00:00">
-  <meta itemprop="wordCount" content="979">
-  <meta itemprop="keywords" content="Docs"></head>
+  <meta itemprop="wordCount" content="977">
+  <meta itemprop="keywords" content="Docs">
+<link rel="stylesheet" href="/css/callouts.css"></head>
 <body>
 
 <div class="container"><header>
@@ -63,9 +64,8 @@ Finally, rename the asset. The standard used in this project is <code>A_AssetNam
 <h2 id="animation-blueprints">Animation Blueprints</h2>
 <p>Animation blueprints, or ABPs, are the brains of Unreal blends animations. The idea is that you have a base pose, which plugs into nodes that modify or blend it, which plugs into the output.</p>
 <blockquote>
-<p>For animations that change based on a variable (i.e. <code>bIsRunning</code>), use a state machine. For animations that play once when an action happens, use an animation montage.</p>
-</blockquote>
-<p>First, create an ABP from your Content Browser. It will ask you which skeleton to use; <strong>use the same skeleton as your animation sequences.</strong> In Mixamo&rsquo;s case, that is <code>SKEL_Xbot</code>. You should now see something similar to this.<br>
+    For animations that change based on a variable (i.e. <code>bIsRunning</code>), use a state machine. For animations that play once when an action happens, use an animation montage.
+</blockquote><p>First, create an ABP from your Content Browser. It will ask you which skeleton to use; <strong>use the same skeleton as your animation sequences.</strong> In Mixamo&rsquo;s case, that is <code>SKEL_Xbot</code>. You should now see something similar to this.<br>
 <img src="/ob/Images/Anim/Tutorial_Anim_3.png" alt=""><br>
 <strong>Output pose</strong> tells the engine what to actually show in-game. To give it a pose, we need to add an animation to it. The simple way to do this is to <strong>drag an sequence into the graph, and connect it.</strong> When the preview on the left tells you to, recompile the animation and it should show up now.<br>
 <img src="/ob/Images/Anim/Tutorial_Anim_4.png" alt=""></p>
@@ -79,10 +79,8 @@ Think of each state as one animation you want. We need to connect between them t
 <img src="/ob/Images/Anim/Tutorial_Anim_7.png" alt=""><br>
 Now, we need to tell it when to switch. If you double click on the transition, you can add a <strong>rule.</strong> When you plug &ldquo;true&rdquo; into the result, the transition will start. <strong>You can make variables for this in the variables tab on the left in &ldquo;My Blueprint&rdquo;.</strong></p>
 <blockquote>
-<p>[!warning] Troubleshooting<br>
-<strong>The rule has to evaluate to true to happen</strong>. This means if you want the transition to happen if a variable is false, you should hook it up as GET VARIABLE -&gt; NOT -&gt; RESULT.</p>
-</blockquote>
-<p><img src="/ob/Images/Anim/Tutorial_Anim_8.png" alt=""><br>
+    <strong>The rule has to evaluate to true to happen</strong>. This means if you want the transition to happen if a variable is false, you should hook it up as GET VARIABLE -&gt; NOT -&gt; RESULT.
+</blockquote><p><img src="/ob/Images/Anim/Tutorial_Anim_8.png" alt=""><br>
 Once you&rsquo;ve added both rules, you can test your state machine. Compile the blueprint; the preview window should automatically start. By default, my character begins in idle. I can then use the &ldquo;Animation Preview Editor&rdquo; tab to click the boolean on and off. <strong>If your animation isn&rsquo;t looping, double click your animation state and make sure Loop is turned on.</strong><br>
 <img src="/ob/Images/Anim/Tutorial_Anim_9.png" alt=""></p>
 <div class="page-break" style="page-break-before: always;"></div>

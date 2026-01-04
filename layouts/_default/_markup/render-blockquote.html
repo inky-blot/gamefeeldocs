@@ -1,0 +1,24 @@
+{{- $text := .Text | strings.TrimSpace -}}
+{{- $lines := split $text "\n" -}}
+{{- $first := index $lines 0 | strings.TrimSpace -}}
+{{- $first = replaceRE `^>\s*` "" $first -}}
+
+{{- if hasPrefix $first `[` -}}
+{{/* Extract callout type */}}
+{{- $type := replace (replace (findRE `\\\[!(.*?)\]` $first | first) "[!" "" ) "]" "" | lower -}}
+{{/* Remove the [!type] part from the first line to get the custom title */}}
+{{- $title := replaceRE `\\\[!(.*?)\]\\\s*` "" $first | strings.TrimSpace -}}
+
+<div class="callout callout-{{ $type }}">
+    <div class="callout-title">{{ $title }}</div>
+    <div class="callout-content">
+        {{/* Remove the first line and render the rest */}}
+        {{- $content := delimit (after 1 $lines) "\n" -}}
+        {{ $content | markdownify }}
+    </div>
+</div>
+{{- else -}}
+<blockquote>
+    {{ $text | markdownify }}
+</blockquote>
+{{- end -}}
