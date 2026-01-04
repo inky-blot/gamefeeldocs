@@ -1,0 +1,17 @@
+baseURL = 'http://localhost:1313/'
+theme = 'hugo-theme-techdoc'
+
+# metadata
+title = 'UE5 Template | Game Feel @ DigiPen'
+languageCode = 'en-us'
+author = "Sylvie Gesling, Nathon Fallon, Caiden Muro, Eric Cagle"
+copyright = "Copyright (C) 2025, DigiPen Institute of Technology"
+
+[params]
+title = 'Game Feel @ DigiPen'
+menu_style = "open-menu"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

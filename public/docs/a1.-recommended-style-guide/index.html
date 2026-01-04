@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>A1. Recommended Style Guide - UE5 Template | Game Feel @ DigiPen</title>
+<meta name="generator" content="Hugo 0.154.2">
+<link href="http://localhost:1313//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="http://localhost:1313/docs/a1.-recommended-style-guide/">
+<link rel="stylesheet" href="http://localhost:1313/css/theme.min.css">
+<link rel="stylesheet" href="http://localhost:1313/css/chroma.min.css">
+<script defer src="http://localhost:1313//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="http://localhost:1313/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="http://localhost:1313/docs/a1.-recommended-style-guide/">
+  <meta property="og:site_name" content="UE5 Template | Game Feel @ DigiPen">
+  <meta property="og:title" content="A1. Recommended Style Guide">
+  <meta property="og:description" content="[!warning] Third-party document
+This document is a modified version of a third-party document. The original document is NOT affiliated with DigiPen Inst. or related persons. That document has been accessed and copied from https://github.com/Allar/ue5-style-guide .
+Style guides are an outline of what assets in-engine should look like, in terms of development.
+If you do not already have a consistent style that works for you, it is heavily recommended that you practice using a style guide before leaving DigiPen. Following the style guide is entirely OPTIONAL. It is a tool; if it hurts more than it helps, do not use it.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-12-20T10:57:25+00:00">
+    <meta property="article:modified_time" content="2026-01-04T15:16:19+00:00">
+    <meta property="article:tag" content="Docs">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="A1. Recommended Style Guide">
+  <meta name="twitter:description" content="[!warning] Third-party document
+This document is a modified version of a third-party document. The original document is NOT affiliated with DigiPen Inst. or related persons. That document has been accessed and copied from https://github.com/Allar/ue5-style-guide .
+Style guides are an outline of what assets in-engine should look like, in terms of development.
+If you do not already have a consistent style that works for you, it is heavily recommended that you practice using a style guide before leaving DigiPen. Following the style guide is entirely OPTIONAL. It is a tool; if it hurts more than it helps, do not use it.">
+
+  <meta itemprop="name" content="A1. Recommended Style Guide">
+  <meta itemprop="description" content="[!warning] Third-party document
+This document is a modified version of a third-party document. The original document is NOT affiliated with DigiPen Inst. or related persons. That document has been accessed and copied from https://github.com/Allar/ue5-style-guide .
+Style guides are an outline of what assets in-engine should look like, in terms of development.
+If you do not already have a consistent style that works for you, it is heavily recommended that you practice using a style guide before leaving DigiPen. Following the style guide is entirely OPTIONAL. It is a tool; if it hurts more than it helps, do not use it.">
+  <meta itemprop="datePublished" content="2025-12-20T10:57:25+00:00">
+  <meta itemprop="dateModified" content="2026-01-04T15:16:19+00:00">
+  <meta itemprop="wordCount" content="9099">
+  <meta itemprop="keywords" content="Docs"></head>
+<body>
+
+<div class="container"><header>
+<h1>UE5 Template | Game Feel @ DigiPen</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>A1. Recommended Style Guide</h1>
+<blockquote>
+<p>[!warning] Third-party document<br>
+This document is a modified version of a third-party document. The original document is NOT affiliated with DigiPen Inst. or related persons. That document has been accessed and copied from <a href="https://github.com/Allar/ue5-style-guide">https://github.com/Allar/ue5-style-guide</a> .</p>
+</blockquote>
+<p>Style guides are an outline of what assets in-engine should look like, in terms of development.</p>
+<p>If you do not already have a consistent style that works for you, it is heavily recommended that you practice using a style guide before leaving DigiPen. <strong>Following the style guide is entirely OPTIONAL. It is a tool; if it hurts more than it helps, do not use it.</strong></p>
+<hr>
+<h1 id="ue5-style-guide">UE5 Style Guide</h1>
+<h2 id="table-of-contents">Table of contents</h2>
+<ul>
+<li><a href="#important-terminology">Important Terminology</a>
+<ul>
+<li><a href="#terms-level-map">Levels/Maps</a></li>
+<li><a href="#terms-identifiers">Identifiers</a></li>
+<li><a href="#terms-cases">Cases</a></li>
+<li><a href="#terms-var-prop">Variables / Properties</a>
+<ul>
+<li><a href="#terms-property">Property</a></li>
+<li><a href="#terms-variable">Variable</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#0">0. Principles</a>
+<ul>
+<li><a href="#0.1">0.1 If your UE4 project already has a style guide, you should follow it</a></li>
+<li><a href="#0.2">0.2 All structure, assets, and code in any Unreal Engine 4 project should look like a single person created it, no matter how many people contributed</a></li>
+<li><a href="#0.3">0.3 Friends do not let friends have bad style</a></li>
+<li><a href="#0.4">0.4 A team without a style guide is no team of mine</a></li>
+<li><a href="#0.5">0.5 Don&rsquo;t Break The Law</a></li>
+</ul>
+</li>
+<li><a href="#00">00. Globally Enforced Opinions</a>
+<ul>
+<li><a href="#00.1">00.1 Forbidden Characters</a>
+<ul>
+<li><a href="#identifiers">Identifiers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#anc">1. Asset Naming Conventions</a>
+<ul>
+<li><a href="#base-asset-name">1.1 Base Asset Name - <code>Prefix_BaseAssetName_Variant_Suffix</code></a>
+<ul>
+<li><a href="#1.1-examples">1.1 Examples</a></li>
+</ul>
+</li>
+<li><a href="#asset-name-modifiers">1.2 Asset Name Modifiers</a>
+<ul>
+<li><a href="#anc-common">1.2.1 Most Common</a></li>
+<li><a href="#anc-animations">1.2.2 Animations</a></li>
+</ul>
+</li>
+<li><a href="#anc-ai">1.2.3 Artificial Intelligence</a></li>
+<li><a href="#anc-bp">1.2.4 Blueprints</a></li>
+<li><a href="#anc-materials">1.2.5 Materials</a></li>
+<li><a href="#anc-textures">1.2.6 Textures</a>
+<ul>
+<li><a href="#anc-textures-packing">1.2.6.1 Texture Packing</a></li>
+</ul>
+</li>
+<li><a href="#anc-misc">1.2.7 Miscellaneous</a></li>
+<li><a href="#anc-paper2d">1.2.8 Paper 2D</a></li>
+<li><a href="#anc-physics">1.2.9 Physics</a></li>
+<li><a href="#anc-sounds">1.2.10 Sounds</a></li>
+<li><a href="#anc-ui">1.2.11 User Interface</a></li>
+<li><a href="#anc-effects">1.2.12 Effects</a></li>
+</ul>
+</li>
+<li><a href="#structure">2. Content Directory Structure</a>
+<ul>
+<li><a href="#2e1">2e1 Example Project Content Structure</a></li>
+<li><a href="#structure-folder-names">2.1 Folder Names</a>
+<ul>
+<li><a href="#2.1.1">2.1.1 Always Use PascalCase</a></li>
+<li><a href="#2.1.2">2.1.2 Never Use Spaces</a></li>
+<li><a href="#2.1.3">2.1.3 Never Use Unicode Characters And Other Symbols</a></li>
+</ul>
+</li>
+<li><a href="#structure-top-level">2.2 Use A Top Level Folder For Project Specific Assets</a>
+<ul>
+<li><a href="#2.2.1">2.2.1 No Global Assets</a></li>
+<li><a href="#2.2.2">2.2.2 Reduce Migration Conflicts</a>
+<ul>
+<li><a href="#2.2.2e1">2.2.2e1 Master Material Example</a></li>
+</ul>
+</li>
+<li><a href="#2.2.3">2.2.3 Samples, Templates, and Marketplace Content Are Risk-Free</a></li>
+<li><a href="#2.2.4">2.2.4 DLC, Sub-Projects, and Patches Are Easily Maintained</a></li>
+</ul>
+</li>
+<li><a href="#structure-developers">2.3 Use Developers Folder For Local Testing</a></li>
+<li><a href="#structure-maps">2.4 All Map<!-- raw HTML omitted -->*<!-- raw HTML omitted --> Files Belong In A Folder Called Maps</a></li>
+<li><a href="#structure-core">2.5 Use A <code>Core</code> Folder For Critical Blueprints And Other Assets</a></li>
+<li><a href="#structure-assettypes">2.6 Do Not Create Folders Called <code>Assets</code> or <code>AssetTypes</code></a>
+<ul>
+<li><a href="#2.6.1">2.6.1 Creating a folder named <code>Assets</code> is redundant</a></li>
+<li><a href="#2.6.2">2.6.2 Creating a folder named <code>Meshes</code>, <code>Textures</code>, or <code>Materials</code> is redundant</a></li>
+</ul>
+</li>
+<li><a href="#structure-large-sets">2.7 Very Large Asset Sets Get Their Own Folder Layout</a></li>
+<li><a href="#structure-material-library">2.8 <code>MaterialLibrary</code></a></li>
+<li><a href="#structure-no-empty-folders">2.9 No Empty Folders</a></li>
+</ul>
+</li>
+<li><a href="#bp">3. Blueprints</a>
+<ul>
+<li><a href="#bp-compiling">3.1 Compiling</a></li>
+<li><a href="#bp-vars">3.2 Variables</a>
+<ul>
+<li><a href="#bp-var-naming">3.2.1 Naming</a>
+<ul>
+<li><a href="#bp-var-naming-nouns">3.2.1.1 Nouns</a></li>
+<li><a href="#bp-var-naming-case">3.2.1.2 PascalCase</a>
+<ul>
+<li><a href="#3.2.1.2e">3.2.1.2e Examples</a></li>
+</ul>
+</li>
+<li><a href="#bp-var-bool-prefix">3.2.1.3 Boolean <code>b</code> Prefix</a></li>
+<li><a href="#bp-var-bool-names">3.2.1.4 Boolean Names</a>
+<ul>
+<li><a href="#3.2.1.4.1">3.2.1.4.1 General And Independent State Information</a></li>
+<li><a href="#3.2.1.4.2">3.2.1.4.2 Complex States</a></li>
+</ul>
+</li>
+<li><a href="#bp-vars-naming-context">3.2.1.5 Considered Context</a>
+<ul>
+<li><a href="#3.2.1.5e">3.2.1.5e Examples</a></li>
+</ul>
+</li>
+<li><a href="#bp-vars-naming-atomic">3.2.1.6 Do <em>Not</em> Include Atomic Type Names</a></li>
+<li><a href="#bp-vars-naming-complex">3.2.1.7 Do Include Non-Atomic Type Names</a></li>
+<li><a href="#bp-vars-naming-arrays">3.2.1.8 Arrays</a></li>
+</ul>
+</li>
+<li><a href="#bp-vars-editable">3.2.2 Editable Variables</a>
+<ul>
+<li><a href="#bp-vars-editable-tooltips">3.2.2.1 Tooltips</a></li>
+<li><a href="#bp-vars-editable-ranges">3.2.2.2 Slider And Value Ranges</a></li>
+</ul>
+</li>
+<li><a href="#bp-vars-categories">3.2.3 Categories</a></li>
+<li><a href="#bp-vars-access">3.2.4 Variable Access Level</a>
+<ul>
+<li><a href="#bp-vars-access-private">3.2.4.1 Private Variables</a></li>
+</ul>
+</li>
+<li><a href="#bp-vars-advanced">3.2.5 Advanced Display</a></li>
+<li><a href="#bp-vars-transient">3.2.6 Transient Variables</a></li>
+<li><a href="#bp-vars-config">3.2.8 Config Variables</a></li>
+</ul>
+</li>
+<li><a href="#bp-functions">3.3 Functions, Events, and Event Dispatchers</a>
+<ul>
+<li><a href="#bp-funcs-naming">3.3.1 Function Naming</a></li>
+<li><a href="#bp-funcs-naming-verbs">3.3.1.1 All Functions Should Be Verbs</a></li>
+<li><a href="#bp-funcs-naming-onrep">3.3.1.2 Property RepNotify Functions Always <code>OnRep_Variable</code></a></li>
+<li><a href="#bp-funcs-naming-bool">3.3.1.3 Info Functions Returning Bool Should Ask Questions</a></li>
+<li><a href="#bp-funcs-naming-eventhandlers">3.3.1.4 Event Handlers and Dispatchers Should Start With <code>On</code></a></li>
+<li><a href="#bp-funcs-naming-rpcs">3.3.1.5 Remote Procedure Calls Should Be Prefixed With Target</a></li>
+<li><a href="#bp-funcs-return">3.3.2 All Functions Must Have Return Nodes</a></li>
+<li><a href="#bp-graphs-funcs-node-limit">3.3.3 No Function Should Have More Than 50 Nodes</a></li>
+<li><a href="#bp-graphs-funcs-description">3.3.4 All Public Functions Should Have A Description</a></li>
+<li><a href="#bp-graphs-funcs-plugin-category">3.3.5 All Custom Static Plugin <code>BlueprintCallable</code> Functions Must Be Categorized By Plugin Name</a></li>
+</ul>
+</li>
+<li><a href="#bp-graphs">3.4 Blueprint Graphs</a>
+<ul>
+<li><a href="#bp-graphs-spaghetti">3.4.1 No Spaghetti</a></li>
+<li><a href="#bp-graphs-align-wires">3.4.2 Align Wires Not Nodes</a></li>
+<li><a href="#bp-graphs-exec-first-class">3.4.3 White Exec Lines Are Top Priority</a></li>
+<li><a href="#bp-graphs-block-comments">3.4.4 Graphs Should Be Reasonably Commented</a></li>
+<li><a href="#bp-graphs-cast-error-handling">3.4.5 Graphs Should Handle Casting Errors Where Appropriate</a></li>
+<li><a href="#bp-graphs-dangling-nodes">3.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4">4. Static Meshes</a>
+<ul>
+<li><a href="#s-uvs">4.1 Static Mesh UVs</a>
+<ul>
+<li><a href="#s-uvs-no-missing">4.1.1 All Meshes Must Have UVs</a></li>
+<li><a href="#s-uvs-no-overlapping">4.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps</a></li>
+</ul>
+</li>
+<li><a href="#s-lods">4.2 LODs Should Be Set Up Correctly</a></li>
+<li><a href="#s-modular-snapping">4.3 Modular Socketless Assets Should Snap To The Grid Cleanly</a></li>
+<li><a href="#s-collision">4.4 All Meshes Must Have Collision</a></li>
+<li><a href="#s-scaled">4.5 All Meshes Should Be Scaled Correctly</a></li>
+</ul>
+</li>
+<li><a href="#Niagara">5. Niagara</a>
+<ul>
+<li><a href="#ng-rules">5.1 No Spaces, Ever</a></li>
+</ul>
+</li>
+<li><a href="#levels">6. Levels / Maps</a>
+<ul>
+<li><a href="#levels-no-errors-or-warnings">6.1 No Errors Or Warnings</a></li>
+<li><a href="#levels-lighting-should-be-built">6.2 Lighting Should Be Built</a></li>
+<li><a href="#levels-no-visible-z-fighting">6.3 No Player Visible Z Fighting</a></li>
+<li><a href="#levels-mp-rules">6.4 Marketplace Specific Rules</a>
+<ul>
+<li><a href="#levels-mp-rules-overview">6.4.1 Overview Level</a></li>
+<li><a href="#levels-mp-rules-demo">6.4.2 Demo Level</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#textures">7. Textures</a>
+<ul>
+<li><a href="#textures-dimensions">7.1 Dimensions Are Powers of 2</a></li>
+<li><a href="#textures-density">7.2 Texture Density Should Be Uniform</a></li>
+<li><a href="#textures-max-size">7.3 Textures Should Be No Bigger than 8192</a></li>
+<li><a href="#textures-group">7.4 Textures Should Be Grouped Correctly</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="important-terminology">Important Terminology</h2>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="levelsmaps">Levels/Maps</h5>
+<p>The word &lsquo;map&rsquo; generally refers to what the average person calls a &rsquo;level&rsquo; and may be used interchangeably. See this term&rsquo;s history <a href="https://en.wikipedia.org/wiki/Level_(video_gaming)">here</a>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="identifiers">Identifiers</h5>
+<p>An <code>Identifier</code> is anything that resembles or serves as a &ldquo;name&rdquo;. For example, the name of an asset, or the name of a material later, or a blueprint property, a variable, or a folder name, or for a data table row name, etc&hellip;</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="cases">Cases</h5>
+<p>There are a few different ways you can <code>CaseWordsWhenNaming</code>. Here are some common casing types:</p>
+<blockquote>
+<h6 id="pascalcase">PascalCase</h6>
+<p>Capitalize every word and remove all spaces, e.g. <code>DesertEagle</code>, <code>StyleGuide</code>, <code>ASeriesOfWords</code>.</p>
+<h6 id="camelcase">camelCase</h6>
+<p>The first letter is always lowercase but every following word starts with uppercase, e.g. <code>desertEagle</code>, <code>styleGuide</code>, <code>aSeriesOfWords</code>.</p>
+<h6 id="snake_case">Snake_case</h6>
+<p>Words can arbitrarily start upper or lowercase but words are separated by an underscore, e.g. <code>desert_Eagle</code>, <code>Style_Guide</code>, <code>a_Series_of_Words</code>.</p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="variables--properties">Variables / Properties</h5>
+<p>The words &lsquo;variable&rsquo; and &lsquo;property&rsquo; in most contexts are interchangable. If they are both used together in the same context however:</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h6 id="property">Property</h6>
+<p>Usually refers to a variable defined in a class. For example, if <code>BP_Barrel</code> had a variable <code>bExploded</code>, <code>bExploded</code> may be referred to as a property of <code>BP_Barrel</code>.</p>
+<p>When in the context of a class, it is often used to imply accessing previously defined data.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h6 id="variable">Variable</h6>
+<p>Usually refers to a variable defined as a function argument or a local variable inside a function.</p>
+<p>When in the context of a class, it is often used to convey discussion about its definition and what it will hold.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="0-principles">0. Principles</h2>
+<p>These principles have been adapted from <a href="https://github.com/rwaldron/idiomatic.js/">idomatic.js style guide</a>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="01-if-your-ue4-project-already-has-a-style-guide-you-should-follow-it">0.1 If your UE4 project already has a style guide, you should follow it</h3>
+<p>If you are working on a project or with a team that has a pre-existing style guide, it should be respected.  Any inconsistency between an existing style guide and this guide should defer to the existing.</p>
+<p>Style guides should be living documents. You should propose style guide changes to an existing style guide as well as this guide if you feel the change benefits all usages.</p>
+<blockquote>
+<h4 id="arguments-over-style-are-pointless-there-should-be-a-style-guide-and-you-should-follow-it">&ldquo;Arguments over style are pointless. There should be a style guide, and you should follow it.&rdquo;</h4>
+<p><a href="https://rmurphey.com"><em>Rebecca Murphey</em></a></p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="02-all-structure-assets-and-code-in-any-unreal-engine-4-project-should-look-like-a-single-person-created-it-no-matter-how-many-people-contributed">0.2 All structure, assets, and code in any Unreal Engine 4 project should look like a single person created it, no matter how many people contributed</h3>
+<p>Moving from one project to another should not cause a re-learning of style and structure. Conforming to a style guide removes unneeded guesswork and ambiguities.</p>
+<p>It also allows for more productive creation and maintenance as one does not need to think about style. Simply follow the instructions. This style guide is written with best practices in mind, meaning that by following this style guide you will also minimize hard to track issues.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="03-friends-do-not-let-friends-have-bad-style">0.3 Friends do not let friends have bad style</h3>
+<p>If you see someone working either against a style guide or no style guide, try to correct them.</p>
+<p>When working within a team or discussing within a community such as <a href="http://join.unrealslackers.org/">Unreal Slackers</a>, it is far easier to help and to ask for help when people are consistent. Nobody likes to help untangle someone&rsquo;s Blueprint spaghetti or deal with assets that have names they can&rsquo;t understand.</p>
+<p>If you are helping someone whose work conforms to a different but consistent and sane style guide, you should be able to adapt to it. If they do not conform to any style guide, please direct them here.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="04-a-team-without-a-style-guide-is-no-team-of-mine">0.4 A team without a style guide is no team of mine</h3>
+<p>When joining an Unreal Engine 4 team, one of your first questions should be &ldquo;Do you have a style guide?&rdquo;. If the answer is no, you should be skeptical about their ability to work as a team.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="05-dont-break-the-law">0.5 Don&rsquo;t Break The Law</h3>
+<p>Gamemakin LLC is not a lawyer, but please don&rsquo;t introduce illegal actions and behavior to a project, including but not limited to:</p>
+<ul>
+<li>Don&rsquo;t distribute content you don&rsquo;t have the rights to distribute</li>
+<li>Don&rsquo;t infringe on someone else&rsquo;s copyrighted or trademark material</li>
+<li>Don&rsquo;t steal content</li>
+<li>Follow licensing restrictions on content, e.g. attribute when attributions are needed</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="00-globally-enforced-opinions">00. Globally Enforced Opinions</h2>
+<p>@TODO: Make this section 1 and update this document accordingly. Or maybe we don&rsquo;t?</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="001-forbidden-characters">00.1 Forbidden Characters</h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="identifiers-1">Identifiers</h4>
+<p>In any <code>Identifier</code> of any kind, <strong>never</strong> use the following unless absolutely forced to:</p>
+<ul>
+<li>White space of any kind</li>
+<li>Backward slashes <code>\</code></li>
+<li>Symbols i.e. <code>#!@$%</code></li>
+<li>Any Unicode character</li>
+</ul>
+<p>Any <code>Identifier</code> should strive to only have the following characters when possible (the RegEx <code>[A-Za-z0-9_]+</code>)</p>
+<ul>
+<li>ABCDEFGHIJKLMNOPQRSTUVWXYZ</li>
+<li>abcdefghijklmnopqrstuvwxyz</li>
+<li>1234567890</li>
+<li>_ (sparingly)</li>
+</ul>
+<p>The reasoning for this is this will ensure the greatest compatibility of all data across all platforms across all tools, and help prevent downtime due to potentially bad character handling for identifiers in code you don&rsquo;t control.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="1-asset-naming-conventions">1. Asset Naming Conventions</h2>
+<p>Naming conventions should be treated as law. A project that conforms to a naming convention is able to have its assets managed, searched, parsed, and maintained with incredible ease.</p>
+<p>Most things are prefixed with prefixes being generally an acronym of the asset type followed by an underscore.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="11-base-asset-name---prefix_baseassetname_variant_suffix">1.1 Base Asset Name - <code>Prefix_BaseAssetName_Variant_Suffix</code></h3>
+<p>All assets should have a <em>Base Asset Name</em>. A Base Asset Name represents a logical grouping of related assets. Any asset that is part of this logical group should follow the standard of  <code>Prefix_BaseAssetName_Variant_Suffix</code>.</p>
+<p>Keeping the pattern <code>Prefix_BaseAssetName_Variant_Suffix</code> and in mind and using common sense is generally enough to warrant good asset names. Here are some detailed rules regarding each element.</p>
+<p><code>Prefix</code> and <code>Suffix</code> are to be determined by the asset type through the following <a href="#asset-name-modifiers">Asset Name Modifier</a> tables.</p>
+<p><code>BaseAssetName</code> should be determined by a short and easily recognizable name related to the context of this group of assets. For example, if you had a character named Bob, all of Bob&rsquo;s assets would have the <code>BaseAssetName</code> of <code>Bob</code>.</p>
+<p>For unique and specific variations of assets, <code>Variant</code> is either a short and easily recognizable name that represents logical grouping of assets that are a subset of an asset&rsquo;s base name. For example, if Bob had multiple skins these skins should still use <code>Bob</code> as the <code>BaseAssetName</code> but include a recognizable <code>Variant</code>. An &lsquo;Evil&rsquo; skin would be referred to as <code>Bob_Evil</code> and a &lsquo;Retro&rsquo; skin would be referred to as <code>Bob_Retro</code>.</p>
+<p>For unique but generic variations of assets, <code>Variant</code> is a two digit number starting at <code>01</code>. For example, if you have an environment artist generating nondescript rocks, they would be named <code>Rock_01</code>, <code>Rock_02</code>, <code>Rock_03</code>, etc. Except for rare exceptions, you should never require a three digit variant number. If you have more than 100 assets, you should consider organizing them with different base names or using multiple variant names.</p>
+<p>Depending on how your asset variants are made, you can chain together variant names. For example, if you are creating flooring assets for an Arch Viz project you should use the base name <code>Flooring</code> with chained variants such as <code>Flooring_Marble_01</code>, <code>Flooring_Maple_01</code>, <code>Flooring_Tile_Squares_01</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="11-examples">1.1 Examples</h4>
+<h5 id="11e1-bob">1.1e1 Bob</h5>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Asset Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Skeletal Mesh</td>
+          <td>SK_Bob</td>
+      </tr>
+      <tr>
+          <td>Material</td>
+          <td>M_Bob</td>
+      </tr>
+      <tr>
+          <td>Texture (Diffuse/Albedo)</td>
+          <td>T_Bob_D</td>
+      </tr>
+      <tr>
+          <td>Texture (Normal)</td>
+          <td>T_Bob_N</td>
+      </tr>
+      <tr>
+          <td>Texture (Evil Diffuse)</td>
+          <td>T_Bob_Evil_D</td>
+      </tr>
+  </tbody>
+</table>
+<h5 id="11e2-rocks">1.1e2 Rocks</h5>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Asset Name</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Static Mesh (01)</td>
+          <td>S_Rock_01</td>
+      </tr>
+      <tr>
+          <td>Static Mesh (02)</td>
+          <td>S_Rock_02</td>
+      </tr>
+      <tr>
+          <td>Static Mesh (03)</td>
+          <td>S_Rock_03</td>
+      </tr>
+      <tr>
+          <td>Material</td>
+          <td>M_Rock</td>
+      </tr>
+      <tr>
+          <td>Material Instance (Snow)</td>
+          <td>MI_Rock_Snow</td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="12-asset-name-modifiers">1.2 Asset Name Modifiers</h3>
+<p>When naming an asset, use these tables to determine the prefix and suffix to use with an asset&rsquo;s <a href="#base-asset-name">Base Asset Name</a>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="121-most-common">1.2.1 Most Common</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Level / Map</td>
+          <td></td>
+          <td></td>
+          <td><a href="#2.4">Should be in a folder called Maps.</a></td>
+      </tr>
+      <tr>
+          <td>Level (Persistent)</td>
+          <td></td>
+          <td>_P</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Level (Audio)</td>
+          <td></td>
+          <td>_Audio</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Level (Lighting)</td>
+          <td></td>
+          <td>_Lighting</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Level (Geometry)</td>
+          <td></td>
+          <td>_Geo</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Level (Gameplay)</td>
+          <td></td>
+          <td>_Gameplay</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Blueprint</td>
+          <td>BP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Material</td>
+          <td>M_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Static Mesh</td>
+          <td>S_</td>
+          <td></td>
+          <td>Many use SM_. We use S_.</td>
+      </tr>
+      <tr>
+          <td>Skeletal Mesh</td>
+          <td>SK_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture</td>
+          <td>T_</td>
+          <td>_?</td>
+          <td>See <a href="#anc-textures">Textures</a></td>
+      </tr>
+      <tr>
+          <td>Particle System</td>
+          <td>PS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Widget Blueprint</td>
+          <td>WBP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="122-animations">1.2.2 Animations</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Aim Offset</td>
+          <td>AO_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Aim Offset 1D</td>
+          <td>AO_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Animation Blueprint</td>
+          <td>ABP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Animation Composite</td>
+          <td>AC_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Animation Montage</td>
+          <td>AM_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Animation Sequence</td>
+          <td>A_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Blend Space</td>
+          <td>BS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Blend Space 1D</td>
+          <td>BS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Level Sequence</td>
+          <td>LS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Morph Target</td>
+          <td>MT_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Paper Flipbook</td>
+          <td>PFB_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Rig</td>
+          <td>Rig_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Skeletal Mesh</td>
+          <td>SK_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Skeleton</td>
+          <td>SKEL_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="123-artificial-intelligence">1.2.3 Artificial Intelligence</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>AI Controller</td>
+          <td>AIC_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Behavior Tree</td>
+          <td>BT_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Blackboard</td>
+          <td>BB_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Decorator</td>
+          <td>BTDecorator_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Service</td>
+          <td>BTService_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Task</td>
+          <td>BTTask_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Environment Query</td>
+          <td>EQS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>EnvQueryContext</td>
+          <td>EQS_</td>
+          <td>Context</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="124-blueprints">1.2.4 Blueprints</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Blueprint</td>
+          <td>BP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Blueprint Component</td>
+          <td>BP_</td>
+          <td>Component</td>
+          <td>I.e. BP_InventoryComponent</td>
+      </tr>
+      <tr>
+          <td>Blueprint Function Library</td>
+          <td>BPFL_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Blueprint Interface</td>
+          <td>BPI_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Blueprint Macro Library</td>
+          <td>BPML_</td>
+          <td></td>
+          <td>Do not use macro libraries if possible.</td>
+      </tr>
+      <tr>
+          <td>Enumeration</td>
+          <td>E</td>
+          <td></td>
+          <td>No underscore.</td>
+      </tr>
+      <tr>
+          <td>Structure</td>
+          <td>F or S</td>
+          <td></td>
+          <td>No underscore.</td>
+      </tr>
+      <tr>
+          <td>Tutorial Blueprint</td>
+          <td>TBP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Widget Blueprint</td>
+          <td>WBP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="125-materials">1.2.5 Materials</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Material</td>
+          <td>M_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Material (Post Process)</td>
+          <td>PP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Material Function</td>
+          <td>MF_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Material Instance</td>
+          <td>MI_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Material Parameter Collection</td>
+          <td>MPC_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Subsurface Profile</td>
+          <td>SP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Physical Materials</td>
+          <td>PM_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Decal</td>
+          <td>M_, MI_</td>
+          <td>_Decal</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="126-textures">1.2.6 Textures</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Texture</td>
+          <td>T_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Diffuse/Albedo/Base Color)</td>
+          <td>T_</td>
+          <td>_D</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Normal)</td>
+          <td>T_</td>
+          <td>_N</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Roughness)</td>
+          <td>T_</td>
+          <td>_R</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Alpha/Opacity)</td>
+          <td>T_</td>
+          <td>_A</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Ambient Occlusion)</td>
+          <td>T_</td>
+          <td>_O</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Bump)</td>
+          <td>T_</td>
+          <td>_B</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Emissive)</td>
+          <td>T_</td>
+          <td>_E</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Mask)</td>
+          <td>T_</td>
+          <td>_M</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Specular)</td>
+          <td>T_</td>
+          <td>_S</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Metallic)</td>
+          <td>T_</td>
+          <td>_M</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture (Packed)</td>
+          <td>T_</td>
+          <td>_*</td>
+          <td>See notes below about <a href="#anc-textures-packing">packing</a>.</td>
+      </tr>
+      <tr>
+          <td>Texture Cube</td>
+          <td>TC_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Media Texture</td>
+          <td>MT_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Render Target</td>
+          <td>RT_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Cube Render Target</td>
+          <td>RTC_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Texture Light Profile</td>
+          <td>TLP</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="1261-texture-packing">1.2.6.1 Texture Packing</h4>
+<p>It is common practice to pack multiple layers of texture data into one texture. An example of this is packing Emissive, Roughness, Ambient Occlusion together as the Red, Green, and Blue channels of a texture respectively. To determine the suffix, simply stack the given suffix letters from above together, e.g. <code>_ERO</code>.</p>
+<blockquote>
+<p>It is generally acceptable to include an Alpha/Opacity layer in your Diffuse/Albedo&rsquo;s alpha channel and as this is common practice, adding <code>A</code> to the <code>_D</code> suffix is optional.</p>
+</blockquote>
+<p>Packing 4 channels of data into a texture (RGBA) is not recommended except for an Alpha/Opacity mask in the Diffuse/Albedo&rsquo;s alpha channel as a texture with an alpha channel incurs more overhead than one without.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="127-miscellaneous">1.2.7 Miscellaneous</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Animated Vector Field</td>
+          <td>VFA_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Camera Anim</td>
+          <td>CA_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Color Curve</td>
+          <td>Curve_</td>
+          <td>_Color</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Curve Table</td>
+          <td>Curve_</td>
+          <td>_Table</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Data Asset</td>
+          <td>*_</td>
+          <td></td>
+          <td>Prefix should be based on class.</td>
+      </tr>
+      <tr>
+          <td>Data Table</td>
+          <td>DT_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Float Curve</td>
+          <td>Curve_</td>
+          <td>_Float</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Foliage Type</td>
+          <td>FT_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Force Feedback Effect</td>
+          <td>FFE_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Landscape Grass Type</td>
+          <td>LG_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Landscape Layer</td>
+          <td>LL_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Matinee Data</td>
+          <td>Matinee_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Media Player</td>
+          <td>MP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>File Media Source</td>
+          <td>FMS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Object Library</td>
+          <td>OL_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Redirector</td>
+          <td></td>
+          <td></td>
+          <td>These should be fixed up ASAP.</td>
+      </tr>
+      <tr>
+          <td>Sprite Sheet</td>
+          <td>SS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Static Vector Field</td>
+          <td>VF_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Substance Graph Instance</td>
+          <td>SGI_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Substance Instance Factory</td>
+          <td>SIF_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Touch Interface Setup</td>
+          <td>TI_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Vector Curve</td>
+          <td>Curve_</td>
+          <td>_Vector</td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="128-paper-2d">1.2.8 Paper 2D</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Paper Flipbook</td>
+          <td>PFB_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Sprite</td>
+          <td>SPR_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Sprite Atlas Group</td>
+          <td>SPRG_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Tile Map</td>
+          <td>TM_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Tile Set</td>
+          <td>TS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="129-physics">1.2.9 Physics</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Physical Material</td>
+          <td>PM_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Physics Asset</td>
+          <td>PHYS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Destructible Mesh</td>
+          <td>DM_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1210-sounds">1.2.10 Sounds</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Dialogue Voice</td>
+          <td>DV_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Dialogue Wave</td>
+          <td>DW_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Media Sound Wave</td>
+          <td>MSW_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Reverb Effect</td>
+          <td>Reverb_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Sound Attenuation</td>
+          <td>ATT_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Sound Class</td>
+          <td></td>
+          <td></td>
+          <td>No prefix/suffix. Should be put in a folder called SoundClasses</td>
+      </tr>
+      <tr>
+          <td>Sound Concurrency</td>
+          <td></td>
+          <td>_SC</td>
+          <td>Should be named after a SoundClass</td>
+      </tr>
+      <tr>
+          <td>Sound Cue</td>
+          <td>A_</td>
+          <td>_Cue</td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Sound Mix</td>
+          <td>Mix_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Sound Wave</td>
+          <td>A_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1211-user-interface">1.2.11 User Interface</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Font</td>
+          <td>Font_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Slate Brush</td>
+          <td>Brush_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Slate Widget Style</td>
+          <td>Style_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Widget Blueprint</td>
+          <td>WBP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="1212-effects">1.2.12 Effects</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Asset Type</th>
+          <th>Prefix</th>
+          <th>Suffix</th>
+          <th>Notes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Particle System</td>
+          <td>PS_</td>
+          <td></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Material (Post Process)</td>
+          <td>PP_</td>
+          <td></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="2-content-directory-structure">2. Content Directory Structure</h2>
+<p>Equally important as asset names, the directory structure style of a project should be considered law. Asset naming conventions and content directory structure go hand in hand, and a violation of either causes unneeded chaos.</p>
+<p>There are multiple ways to lay out the content of a UE4 project. In this style, we will be using a structure that relies more on filtering and search abilities of the Content Browser for those working with assets to find assets of a specific type instead of another common structure that groups asset types with folders.</p>
+<blockquote>
+<p>If you are using the prefix <a href="#1.2">naming convention</a> above, using folders to contain assets of similar types such as <code>Meshes</code>, <code>Textures</code>, and <code>Materials</code> is a redundant practice as asset types are already both sorted by prefix as well as able to be filtered in the content browser.</p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="2e1-example-project-content-structure">2e1 Example Project Content Structure</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>The reasons for this structure are listed in the following sub-sections.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="21-folder-names">2.1 Folder Names</h3>
+<p>These are common rules for naming any folder in the content structure.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="211-always-use-pascalcase">2.1.1 Always Use PascalCase<a href="#terms-cases"><!-- raw HTML omitted -->*<!-- raw HTML omitted --></a></h4>
+<p>PascalCase refers to starting a name with a capital letter and then instead of using spaces, every following word also starts with a capital letter. For example, <code>DesertEagle</code>, <code>RocketPistol</code>, and <code>ASeriesOfWords</code>.</p>
+<p>See <a href="#terms-cases">Cases</a>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="212-never-use-spaces">2.1.2 Never Use Spaces</h4>
+<p>Re-enforcing <a href="#2.1.1">2.1.1</a>, never use spaces. Spaces can cause various engineering tools and batch processes to fail. Ideally, your project&rsquo;s root also contains no spaces and is located somewhere such as <code>D:\Project</code> instead of <code>C:\Users\My Name\My Documents\Unreal Projects</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="213-never-use-unicode-characters-and-other-symbols">2.1.3 Never Use Unicode Characters And Other Symbols</h4>
+<p>If one of your game characters is named &lsquo;Zoë&rsquo;, its folder name should be <code>Zoe</code>. Unicode characters can be worse than <a href="#2.1.2">Spaces</a> for engineering tool and some parts of UE4 don&rsquo;t support Unicode characters in paths either.</p>
+<p>Related to this, if your project has <a href="https://answers.unrealengine.com/questions/101207/undefined.html">unexplained issues</a> and your computer&rsquo;s user name has a Unicode character (i.e. your name is <code>Zoë</code>), any project located in your <code>My Documents</code> folder will suffer from this issue. Often simply moving your project to something like <code>D:\Project</code> will fix these mysterious issues.</p>
+<p>Using other characters outside <code>a-z</code>, <code>A-Z</code>, and <code>0-9</code> such as <code>@</code>, <code>-</code>, <code>_</code>, <code>,</code>, <code>*</code>, and <code>#</code> can also lead to unexpected and hard to track issues on other platforms, source control, and weaker engineering tools.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="22-use-a-top-level-folder-for-project-specific-assets">2.2 Use A Top Level Folder For Project Specific Assets</h3>
+<p>All of a project&rsquo;s assets should exist in a folder named after the project. For example, if your project is named &lsquo;Generic Shooter&rsquo;, <em>all</em> of it&rsquo;s content should exist in <code>Content/GenericShooter</code>.</p>
+<blockquote>
+<p>The <code>Developers</code> folder is not for assets that your project relies on and therefore is not project specific. See <a href="#2.3">Developer Folders</a> for details about this.</p>
+</blockquote>
+<p>There are multiple reasons for this approach.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="221-no-global-assets">2.2.1 No Global Assets</h4>
+<p>Often in code style guides it is written that you should not pollute the global namespace and this follows the same principle. When assets are allowed to exist outside of a project folder, it often becomes much harder to enforce a strict structure layout as assets not in a folder encourages the bad behavior of not having to organize assets.</p>
+<p>Every asset should have a purpose, otherwise it does not belong in a project. If an asset is an experimental test and shouldn&rsquo;t be used by the project it should be put in a <a href="#2.3"><code>Developer</code></a> folder.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="222-reduce-migration-conflicts">2.2.2 Reduce Migration Conflicts</h4>
+<p>When working on multiple projects it is common for a team to copy assets from one project to another if they have made something useful for both. When this occurs, the easiest way to perform the copy is to use the Content Browser&rsquo;s Migrate functionality as it will copy over not just the selected asset but all of its dependencies.</p>
+<p>These dependencies are what can easily get you into trouble. If two project&rsquo;s assets do not have a top level folder and they happen to have similarly named or already previously migrated assets, a new migration can accidentally wipe any changes to the existing assets.</p>
+<p>This is also the primary reason why Epic&rsquo;s Marketplace staff enforces the same policy for submitted assets.</p>
+<p>After a migration, safe merging of assets can be done using the &lsquo;Replace References&rsquo; tool in the content browser with the added clarity of assets not belonging to a project&rsquo;s top level folder are clearly pending a merge. Once assets are merged and fully migrated, there shouldn&rsquo;t be another top level folder in your Content tree. This method is <em>100%</em> guaranteed to make any migrations that occur completely safe.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="222e1-master-material-example">2.2.2e1 Master Material Example</h5>
+<p>For example, say you created a master material in one project that you would like to use in another project so you migrated that asset over. If this asset is not in a top level folder, it may have a name like <code>Content/MaterialLibrary/M_Master</code>. If the target project doesn&rsquo;t have a master material already, this should work without issue.</p>
+<p>As work on one or both projects progress, their respective master materials may change to be tailored for their specific projects due to the course of normal development.</p>
+<p>The issue comes when, for example, an artist for one project created a nice generic modular set of static meshes and someone wants to include that set of static meshes in the second project. If the artist who created the assets used material instances based on <code>Content/MaterialLibrary/M_Master</code> as they&rsquo;re instructed to, when a migration is performed there is a great chance of conflict for the previously migrated <code>Content/MaterialLibrary/M_Master</code> asset.</p>
+<p>This issue can be hard to predict and hard to account for. The person migrating the static meshes may not be the same person who is familiar with the development of both project&rsquo;s master material, and they may not be even aware that the static meshes in question rely on material instances which then rely on the master material. The Migrate tool requires the entire chain of dependencies to work however, and so it will be forced to grab <code>Content/MaterialLibrary/M_Master</code> when it copies these assets to the other project and it will overwrite the existing asset.</p>
+<p>It is at this point where if the master materials for both projects are incompatible in <em>any way</em>, you risk breaking possibly the entire material library for a project as well as any other dependencies that may have already been migrated, simply because assets were not stored in a top level folder. The simple migration of static meshes now becomes a very ugly task.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="223-samples-templates-and-marketplace-content-are-risk-free">2.2.3 Samples, Templates, and Marketplace Content Are Risk-Free</h4>
+<p>An extension to <a href="#2.2.2">2.2.2</a>, if a team member decides to add sample content, template files, or assets they bought from the marketplace, it is guaranteed, as long your project&rsquo;s top-level folder is uniquely named,that these new assets will not interfere with your project.</p>
+<p>You can not trust marketplace content to fully conform to the <a href="#2.2">top level folder rule</a>. There exists many assets that have the majority of their content in a top level folder but also have possibly modified Epic sample content as well as level files polluting the global <code>Content</code> folder.</p>
+<p>When adhering to <a href="#2.2">2.2</a>, the worst marketplace conflict you can have is if two marketplace assets both have the same Epic sample content. If all your assets are in a project specific folder, including sample content you may have moved into your folder, your project will never break.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="224-dlc-sub-projects-and-patches-are-easily-maintained">2.2.4 DLC, Sub-Projects, and Patches Are Easily Maintained</h4>
+<p>If your project plans to release DLC or has multiple sub-projects associated with it that may either be migrated out or simply not cooked in a build, assets relating to these projects should have their own separate top level content folder. This make cooking DLC separate from main project content far easier. Sub-projects can also be migrated in and out with minimal effort. If you need to change a material of an asset or add some very specific asset override behavior in a patch, you can easily put these changes in a patch folder and work safely without the chance of breaking the core project.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="23-use-developers-folder-for-local-testing">2.3 Use Developers Folder For Local Testing</h3>
+<p>During a project&rsquo;s development, it is very common for team members to have a sort of &lsquo;sandbox&rsquo; where they can experiment freely without risking the core project. Because this work may be ongoing, these team members may wish to put their assets on a project&rsquo;s source control server. Not all teams require use of Developer folders, but ones that do use them often run into a common problem with assets submitted to source control.</p>
+<p>It is very easy for a team member to accidentally use assets that are not ready for use, which will cause issues once those assets are removed. For example, an artist may be iterating on a modular set of static meshes and still working on getting their sizing and grid snapping correct. If a world builder sees these assets in the main project folder, they might use them all over a level not knowing they could be subject to incredible change and/or removal. This causes massive amounts of re-working for everyone on the team to resolve.</p>
+<p>If these modular assets were placed in a Developer folder, the world builder should never have had a reason to use them and the whole issue would never happen. The Content Browser has specific View Options that will hide Developer folders (they are hidden by default) making it impossible to accidentally use Developer assets under normal use.</p>
+<p>Once the assets are ready for use, an artist simply has to move the assets into the project specific folder and fix up redirectors. This is essentially &lsquo;promoting&rsquo; the assets from experimental to production.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="24-all-map-files-belong-in-a-folder-called-maps">2.4 All Map<a href="#terms-level-map"><!-- raw HTML omitted -->*<!-- raw HTML omitted --></a> Files Belong In A Folder Called Maps</h3>
+<p>Map files are incredibly special and it is common for every project to have its own map naming system, especially if they work with sub-levels or streaming levels. No matter what system of map organization is in place for the specific project, all levels should belong in <code>/Content/Project/Maps</code>.</p>
+<p>Being able to tell someone to open a specific map without having to explain where it is is a great time saver and general &lsquo;quality of life&rsquo; improvement. It is common for levels to be within sub-folders of <code>Maps</code>, such as <code>Maps/Campaign1/</code> or <code>Maps/Arenas</code>, but the most important thing here is that they all exist within <code>/Content/Project/Maps</code>.</p>
+<p>This also simplifies the job of cooking for engineers. Wrangling levels for a build process can be extremely frustrating if they have to dig through arbitrary folders for them. If a team&rsquo;s maps are all in one place, it is much harder to accidentally not cook a map in a build. It also simplifies lighting build scripts as well as QA processes.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="25-use-a-core-folder-for-critical-blueprints-and-other-assets">2.5 Use A <code>Core</code> Folder For Critical Blueprints And Other Assets</h3>
+<p>Use <code>/Content/Project/Core</code> folder for assets that are absolutely fundamental to a project&rsquo;s workings. For example, base <code>GameMode</code>, <code>Character</code>, <code>PlayerController</code>, <code>GameState</code>, <code>PlayerState</code>, and related Blueprints should live here.</p>
+<p>This creates a very clear &ldquo;don&rsquo;t touch these&rdquo; message for other team members. Non-engineers should have very little reason to enter the <code>Core</code> folder. Following good code structure style, designers should be making their gameplay tweaks in child classes that expose functionality. World builders should be using prefab Blueprints in designated folders instead of potentially abusing base classes.</p>
+<p>For example, if your project requires pickups that can be placed in a level, there should exist a base Pickup class in <code>Core/Pickups</code> that defines base behavior for a pickup. Specific pickups such as a Health or Ammo should exist in a folder such as <code>/Content/Project/Placeables/Pickups/</code>. Game designers can define and tweak pickups in this folder however they please, but they should not touch <code>Core/Pickups</code> as they may unintentionally break pickups project-wide.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="26-do-not-create-folders-called-assets-or-assettypes">2.6 Do Not Create Folders Called <code>Assets</code> or <code>AssetTypes</code></h3>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="261-creating-a-folder-named-assets-is-redundant">2.6.1 Creating a folder named <code>Assets</code> is redundant</h4>
+<p>All assets are assets.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="262-creating-a-folder-named-meshes-textures-or-materials-is-redundant">2.6.2 Creating a folder named <code>Meshes</code>, <code>Textures</code>, or <code>Materials</code> is redundant</h4>
+<p>All asset names are named with their asset type in mind. These folders offer only redundant information and the use of these folders can easily be replaced with the robust and easy to use filtering system the Content Browser provides.</p>
+<p>Want to view only static mesh in <code>Environment/Rocks/</code>? Simply turn on the Static Mesh filter. If all assets are named correctly, they will also be sorted in alphabetical order regardless of prefixes. Want to view both static meshes and skeletal meshes? Simply turn on both filters. This eliminates the need to potentially have to <code>Control-Click</code> select two folders in the Content Browser&rsquo;s tree view.</p>
+<blockquote>
+<p>This also extends the full path name of an asset for very little benefit. The <code>S_</code> prefix for a static mesh is only two characters, whereas <code>Meshes/</code> is seven characters.</p>
+</blockquote>
+<p>Not doing this also prevents the inevitability of someone putting a static mesh or a texture in a <code>Materials</code> folder.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="27-very-large-asset-sets-get-their-own-folder-layout">2.7 Very Large Asset Sets Get Their Own Folder Layout</h3>
+<p>This can be seen as a pseudo-exception to <a href="#2.6">2.6</a>.</p>
+<p>There are certain asset types that have a huge volume of related files where each asset has a unique purpose. The two most common are Animation and Audio assets. If you find yourself having 15+ of these assets that belong together, they should be together.</p>
+<p>For example, animations that are shared across multiple characters should lay in <code>Characters/Common/Animations</code> and may have sub-folders such as <code>Locomotion</code> or <code>Cinematic</code>.</p>
+<blockquote>
+<p>This does not apply to assets like textures and materials. It is common for a <code>Rocks</code> folder to have a large amount of textures if there are a large amount of rocks, however these textures are generally only related to a few specific rocks and should be named appropriately. Even if these textures are part of a <a href="#2.8">Material Library</a>.</p>
+</blockquote>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="28-materiallibrary">2.8 <code>MaterialLibrary</code></h3>
+<p>If your project makes use of master materials, layered materials, or any form of reusable materials or textures that do not belong to any subset of assets, these assets should be located in <code>Content/Project/MaterialLibrary</code>.</p>
+<p>This way all &lsquo;global&rsquo; materials have a place to live and are easily located.</p>
+<blockquote>
+<p>This also makes it incredibly easy to enforce a &lsquo;use material instances only&rsquo; policy within a project. If all artists and assets should be using material instances, then the only regular material assets that should exist are within this folder. You can easily verify this by searching for base materials in any folder that isn&rsquo;t the <code>MaterialLibrary</code>.</p>
+</blockquote>
+<p>The <code>MaterialLibrary</code> doesn&rsquo;t have to consist of purely materials. Shared utility textures, material functions, and other things of this nature should be stored here as well within folders that designate their intended purpose. For example, generic noise textures should be located in <code>MaterialLibrary/Utility</code>.</p>
+<p>Any testing or debug materials should be within <code>MaterialLibrary/Debug</code>. This allows debug materials to be easily stripped from a project before shipping and makes it incredibly apparent if production assets are using them if reference errors are shown.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="29-no-empty-folders">2.9 No Empty Folders</h3>
+<p>There simply shouldn&rsquo;t be any empty folders. They clutter the content browser.</p>
+<p>If you find that the content browser has an empty folder you can&rsquo;t delete, you should perform the following:</p>
+<ol>
+<li>Be sure you&rsquo;re using source control.</li>
+<li>Immediately run Fix Up Redirectors on your project.</li>
+<li>Navigate to the folder on-disk and delete the assets inside.</li>
+<li>Close the editor.</li>
+<li>Make sure your source control state is in sync (i.e. if using Perforce, run a Reconcile Offline Work on your content directory)</li>
+<li>Open the editor. Confirm everything still works as expected. If it doesn&rsquo;t, revert, figure out what went wrong, and try again.</li>
+<li>Ensure the folder is now gone.</li>
+<li>Submit changes to source control.</li>
+</ol>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="3-blueprints">3. Blueprints</h2>
+<p>This section will focus on Blueprint classes and their internals. When possible, style rules conform to <a href="https://docs.unrealengine.com/latest/INT/Programming/Development/CodingStandard">Epic&rsquo;s Coding Standard</a>.</p>
+<p>Remember: Blueprinting badly bears blunders, beware! (Phrase by <a href="http://github.com/KorkuVeren">KorkuVeren</a>)</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="31-compiling">3.1 Compiling</h3>
+<p>All blueprints should compile with zero warnings and zero errors. You should fix blueprint warnings and errors immediately as they can quickly cascade into very scary unexpected behavior.</p>
+<p>Do <em>not</em> submit broken blueprints to source control. If you must store them on source control, shelve them instead.</p>
+<p>Broken blueprints can cause problems that manifest in other ways, such as broken references, unexpected behavior, cooking failures, and frequent unneeded recompilation. A broken blueprint has the power to break your entire game.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="32-variables">3.2 Variables</h3>
+<p>The words <code>variable</code> and <code>property</code> may be used interchangeably.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="321-naming">3.2.1 Naming</h4>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3211-nouns">3.2.1.1 Nouns</h5>
+<p>All non-boolean variable names must be clear, unambiguous, and descriptive nouns.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3212-pascalcase">3.2.1.2 PascalCase</h5>
+<p>All non-boolean variables should be in the form of <a href="#terms-cases">PascalCase</a>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h6 id="3212e-examples">3.2.1.2e Examples</h6>
+<ul>
+<li><code>Score</code></li>
+<li><code>Kills</code></li>
+<li><code>TargetPlayer</code></li>
+<li><code>Range</code></li>
+<li><code>CrosshairColor</code></li>
+<li><code>AbilityID</code></li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3213-boolean-b-prefix">3.2.1.3 Boolean <code>b</code> Prefix</h5>
+<p>All booleans should be named in PascalCase but prefixed with a lowercase <code>b</code>.</p>
+<p>Example: Use <code>bDead</code> and <code>bEvil</code>, <strong>not</strong> <code>Dead</code> and <code>Evil</code>.</p>
+<p>UE4 Blueprint editors know not to include the <code>b</code> in user-friendly displays of the variable.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3214-boolean-names">3.2.1.4 Boolean Names</h5>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h6 id="32141-general-and-independent-state-information">3.2.1.4.1 General And Independent State Information</h6>
+<p>All booleans should be named as descriptive adjectives when possible if representing general information. Do not include words that phrase the variable as a question, such as <code>Is</code>. This is reserved for functions.</p>
+<p>Example: Use <code>bDead</code> and <code>bHostile</code> <strong>not</strong> <code>bIsDead</code> and <code>bIsHostile</code>.</p>
+<p>Try to not use verbs such as <code>bRunning</code>. Verbs tend to lead to complex states.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h6 id="32142-complex-states">3.2.1.4.2 Complex States</h6>
+<p>Do not to use booleans to represent complex and/or dependent states. This makes state adding and removing complex and no longer easily readable. Use an enumeration instead.</p>
+<p>Example: When defining a weapon, do <strong>not</strong> use <code>bReloading</code> and <code>bEquipping</code> if a weapon can&rsquo;t be both reloading and equipping. Define an enumeration named <code>EWeaponState</code> and use a variable with this type named <code>WeaponState</code> instead. This makes it far easier to add new states to weapons.</p>
+<p>Example: Do <strong>not</strong> use <code>bRunning</code> if you also need <code>bWalking</code> or <code>bSprinting</code>. This should be defined as an enumeration with clearly defined state names.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3215-considered-context">3.2.1.5 Considered Context</h5>
+<p>All variable names must not be redundant with their context as all variable references in Blueprint will always have context.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h6 id="3215e-examples">3.2.1.5e Examples</h6>
+<p>Consider a Blueprint called <code>BP_PlayerCharacter</code>.</p>
+<p><strong>Bad</strong></p>
+<ul>
+<li><code>PlayerScore</code></li>
+<li><code>PlayerKills</code></li>
+<li><code>MyTargetPlayer</code></li>
+<li><code>MyCharacterName</code></li>
+<li><code>CharacterSkills</code></li>
+<li><code>ChosenCharacterSkin</code></li>
+</ul>
+<p>All of these variables are named redundantly. It is implied that the variable is representative of the <code>BP_PlayerCharacter</code> it belongs to because it is <code>BP_PlayerCharacter</code> that is defining these variables.</p>
+<p><strong>Good</strong></p>
+<ul>
+<li><code>Score</code></li>
+<li><code>Kills</code></li>
+<li><code>TargetPlayer</code></li>
+<li><code>Name</code></li>
+<li><code>Skills</code></li>
+<li><code>Skin</code></li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3216-do-not-include-atomic-type-names">3.2.1.6 Do <em>Not</em> Include Atomic Type Names</h5>
+<p>Atomic or primitive variables are variables that represent data in their simplest form, such as booleans, integers, floats, and enumerations.</p>
+<p>Strings and vectors are considered atomic in terms of style when working with Blueprints, however they are technically not atomic.</p>
+<blockquote>
+<p>While vectors consist of three floats, vectors are often able to be manipulated as a whole, same with rotators.</p>
+</blockquote>
+<blockquote>
+<p>Do <em>not</em> consider Text variables as atomic, they are secretly hiding localization functionality. The atomic type of a string of characters is <code>String</code>, not <code>Text</code>.</p>
+</blockquote>
+<p>Atomic variables should not have their type name in their name.</p>
+<p>Example: Use <code>Score</code>, <code>Kills</code>, and <code>Description</code> <strong>not</strong> <code>ScoreFloat</code>, <code>FloatKills</code>, <code>DescriptionString</code>.</p>
+<p>The only exception to this rule is when a variable represents &lsquo;a number of&rsquo; something to be counted <em>and</em> when using a name without a variable type is not easy to read.</p>
+<p>Example: A fence generator needs to generate X number of posts. Store X in <code>NumPosts</code> or <code>PostsCount</code> instead of <code>Posts</code> as <code>Posts</code> may potentially read as an Array of a variable type named <code>Post</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3217-do-include-non-atomic-type-names">3.2.1.7 Do Include Non-Atomic Type Names</h5>
+<p>Non-atomic or complex variables are variables that represent data as a collection of atomic variables. Structs, Classes, Interfaces, and primitives with hidden behavior such as <code>Text</code> and <code>Name</code> all qualify under this rule.</p>
+<blockquote>
+<p>While an Array of an atomic variable type is a list of variables, Arrays do not change the &lsquo;atomicness&rsquo; of a variable type.</p>
+</blockquote>
+<p>These variables should include their type name while still considering their context.</p>
+<p>If a class owns an instance of a complex variable, i.e. if a <code>BP_PlayerCharacter</code> owns a <code>BP_Hat</code>, it should be stored as the variable type as without any name modifications.</p>
+<p>Example: Use <code>Hat</code>, <code>Flag</code>, and <code>Ability</code> <strong>not</strong> <code>MyHat</code>, <code>MyFlag</code>, and <code>PlayerAbility</code>.</p>
+<p>If a class does not own the value a complex variable represents, you should use a noun along with the variable type.</p>
+<p>Example: If a <code>BP_Turret</code> has the ability to target a <code>BP_PlayerCharacter</code>, it should store its target as <code>TargetPlayer</code> as when in the context of <code>BP_Turret</code> it should be clear that it is a reference to another complex variable type that it does not own.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3218-arrays">3.2.1.8 Arrays</h5>
+<p>Arrays follow the same naming rules as above, but should be named as a plural noun.</p>
+<p>Example: Use <code>Targets</code>, <code>Hats</code>, and <code>EnemyPlayers</code>, <strong>not</strong> <code>TargetList</code>, <code>HatArray</code>, <code>EnemyPlayerArray</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="322-editable-variables">3.2.2 Editable Variables</h4>
+<p>All variables that are safe to change the value of in order to configure behavior of a blueprint should be marked as <code>Editable</code>.</p>
+<p>Conversely, all variables that are not safe to change or should not be exposed to designers should <em>not</em> be marked as editable, unless for engineering reasons the variable must be marked as <code>Expose On Spawn</code>.</p>
+<p>Do not arbitrarily mark variables as <code>Editable</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3221-tooltips">3.2.2.1 Tooltips</h5>
+<p>All <code>Editable</code> variables, including those marked editable just so they can be marked as <code>Expose On Spawn</code>, should have a description in their <code>Tooltip</code> fields that explains how changing this value affects the behavior of the blueprint.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3222-slider-and-value-ranges">3.2.2.2 Slider And Value Ranges</h5>
+<p>All <code>Editable</code> variables should make use of slider and value ranges if there is ever a value that a variable should <em>not</em> be set to.</p>
+<p>Example: A blueprint that generates fence posts might have an editable variable named <code>PostsCount</code> and a value of -1 would not make any sense. Use the range fields to mark 0 as a minimum.</p>
+<p>If an editable variable is used in a Construction Script, it should have a reasonable Slider Range defined so that someone can not accidentally assign it a large value that could crash the editor.</p>
+<p>A Value Range only needs to be defined if the bounds of a value are known. While a Slider Range prevents accidental large number inputs, an undefined Value Range allows a user to specify a value outside the Slider Range that may be considered &lsquo;dangerous&rsquo; but still valid.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="323-categories">3.2.3 Categories</h4>
+<p>If a class has only a small number of variables, categories are not required.</p>
+<p>If a class has a moderate amount of variables (5-10), all <code>Editable</code> variables should have a non-default category assigned. A common category is <code>Config</code>.</p>
+<p>If a class has a large amount of variables, all <code>Editable</code> variables should be categorized into sub-categories using the category <code>Config</code> as the base category. Non-editable variables should be categorized into descriptive categories describing their usage.</p>
+<blockquote>
+<p>You can define sub-categories by using the pipe character <code>|</code>, i.e. <code>Config | Animations</code>.</p>
+</blockquote>
+<p>Example: A weapon class set of variables might be organized as:</p>
+<pre tabindex="0"><code>|-- Config
+|    |-- Animations
+|    |-- Effects
+|    |-- Audio
+|    |-- Recoil
+|    |-- Timings
+|-- Animations
+|-- State
+|-- Visuals
+</code></pre><p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="324-variable-access-level">3.2.4 Variable Access Level</h4>
+<p>In C++, variables have a concept of access level. Public means any code outside the class can access the variable. Protected means only the class and any child classes can access this variable internally. Private means only this class and no child classes can access this variable.</p>
+<p>Blueprints do not have a defined concept of protected access currently.</p>
+<p>Treat <code>Editable</code> variables as public variables. Treat non-editable variables as protected variables.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h5 id="3241-private-variables">3.2.4.1 Private Variables</h5>
+<p>Unless it is known that a variable should only be accessed within the class it is defined and never a child class, do not mark variables as private. Until variables are able to be marked <code>protected</code>, reserve private for when you absolutely know you want to restrict child class usage.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="325-advanced-display">3.2.5 Advanced Display</h4>
+<p>If a variable should be editable but often untouched, mark it as <code>Advanced Display</code>. This makes the variable hidden unless the advanced display arrow is clicked.</p>
+<p>To find the <code>Advanced Display</code> option, it is listed as an advanced displayed variable in the variable details list.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="326-transient-variables">3.2.6 Transient Variables</h4>
+<p>Transient variables are variables that do not need to have their value saved and loaded and have an initial value of zero or null. This is useful for references to other objects and actors who&rsquo;s value isn&rsquo;t known until run-time. This prevents the editor from ever saving a reference to it, and speeds up saving and loading of the blueprint class.</p>
+<p>Because of this, all transient variables should always be initialized as zero or null. To do otherwise would result in hard to debug errors.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="328-config-variables">3.2.8 Config Variables</h4>
+<p>Do not use the <code>Config Variable</code> flag. This makes it harder for designers to control blueprint behavior. Config variables should only be used in C++ for rarely changed variables. Think of them as <code>Advanced Advanced Display</code> variables.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="33-functions-events-and-event-dispatchers">3.3 Functions, Events, and Event Dispatchers</h3>
+<p>This section describes how you should author functions, events, and event dispatchers. Everything that applies to functions also applies to events, unless otherwise noted.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="331-function-naming">3.3.1 Function Naming</h4>
+<p>The naming of functions, events, and event dispatchers is critically important. Based on the name alone, certain assumptions can be made about functions. For example:</p>
+<ul>
+<li>Is it a pure function?</li>
+<li>Is it fetching state information?</li>
+<li>Is it a handler?</li>
+<li>Is it an RPC?</li>
+<li>What is its purpose?</li>
+</ul>
+<p>These questions and more can all be answered when functions are named appropriately.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="3311-all-functions-should-be-verbs">3.3.1.1 All Functions Should Be Verbs</h4>
+<p>All functions and events perform some form of action, whether its getting info, calculating data, or causing something to explode. Therefore, all functions should all start with verbs. They should be worded in the present tense whenever possible. They should also have some context as to what they are doing.</p>
+<p><code>OnRep</code> functions, event handlers, and event dispatchers are an exception to this rule.</p>
+<p>Good examples:</p>
+<ul>
+<li><code>Fire</code> - Good example if in a Character / Weapon class, as it has context. Bad if in a Barrel / Grass / any ambiguous class.</li>
+<li><code>Jump</code> - Good example if in a Character class, otherwise, needs context.</li>
+<li><code>Explode</code></li>
+<li><code>ReceiveMessage</code></li>
+<li><code>SortPlayerArray</code></li>
+<li><code>GetArmOffset</code></li>
+<li><code>GetCoordinates</code></li>
+<li><code>UpdateTransforms</code></li>
+<li><code>EnableBigHeadMode</code></li>
+<li><code>IsEnemy</code> - <a href="http://writingexplained.org/is-is-a-verb">&ldquo;Is&rdquo; is a verb.</a></li>
+</ul>
+<p>Bad examples:</p>
+<ul>
+<li><code>Dead</code> - Is Dead? Will deaden?</li>
+<li><code>Rock</code></li>
+<li><code>ProcessData</code> - Ambiguous, these words mean nothing.</li>
+<li><code>PlayerState</code> - Nouns are ambiguous.</li>
+<li><code>Color</code> - Verb with no context, or ambiguous noun.</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="3312-property-repnotify-functions-always-onrep_variable">3.3.1.2 Property RepNotify Functions Always <code>OnRep_Variable</code></h4>
+<p>All functions for replicated with notification variables should have the form <code>OnRep_Variable</code>. This is forced by the Blueprint editor. If you are writing a C++ <code>OnRep</code> function however, it should also follow this convention when exposing it to Blueprints.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="3313-info-functions-returning-bool-should-ask-questions">3.3.1.3 Info Functions Returning Bool Should Ask Questions</h4>
+<p>When writing a function that does not change the state of or modify any object and is purely for getting information, state, or computing a yes/no value, it should ask a question. This should also follow <a href="#bp-funcs-naming-verbs">the verb rule</a>.</p>
+<p>This is extremely important as if a question is not asked, it may be assumed that the function performs an action and is returning whether that action succeeded.</p>
+<p>Good examples:</p>
+<ul>
+<li><code>IsDead</code></li>
+<li><code>IsOnFire</code></li>
+<li><code>IsAlive</code></li>
+<li><code>IsSpeaking</code></li>
+<li><code>IsHavingAnExistentialCrisis</code></li>
+<li><code>IsVisible</code></li>
+<li><code>HasWeapon</code> - <a href="http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html">&ldquo;Has&rdquo; is a verb.</a></li>
+<li><code>WasCharging</code> - <a href="http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html">&ldquo;Was&rdquo; is past-tense of &ldquo;be&rdquo;.</a> Use &ldquo;was&rdquo; when referring to &lsquo;previous frame&rsquo; or &lsquo;previous state&rsquo;.</li>
+<li><code>CanReload</code> - <a href="http://grammar.yourdictionary.com/parts-of-speech/verbs/Helping-Verbs.html">&ldquo;Can&rdquo; is a verb.</a></li>
+</ul>
+<p>Bad examples:</p>
+<ul>
+<li><code>Fire</code> - Is on fire? Will fire? Do fire?</li>
+<li><code>OnFire</code> - Can be confused with event dispatcher for firing.</li>
+<li><code>Dead</code> - Is dead? Will deaden?</li>
+<li><code>Visibility</code> - Is visible? Set visibility? A description of flying conditions?</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="3314-event-handlers-and-dispatchers-should-start-with-on">3.3.1.4 Event Handlers and Dispatchers Should Start With <code>On</code></h4>
+<p>Any function that handles an event or dispatches an event should start with <code>On</code> and continue to follow <a href="#bp-funcs-naming-verbs">the verb rule</a>. The verb may move to the end however if past-tense reads better.</p>
+<p><a href="http://dictionary.cambridge.org/us/grammar/british-grammar/about-words-clauses-and-sentences/collocation">Collocations</a> of the word <code>On</code> are exempt from following the verb rule.</p>
+<p><code>Handle</code> is not allowed. It is &lsquo;Unreal&rsquo; to use <code>On</code> instead of <code>Handle</code>, while other frameworks may prefer to use <code>Handle</code> instead of <code>On</code>.</p>
+<p>Good examples:</p>
+<ul>
+<li><code>OnDeath</code> - Common collocation in games</li>
+<li><code>OnPickup</code></li>
+<li><code>OnReceiveMessage</code></li>
+<li><code>OnMessageRecieved</code></li>
+<li><code>OnTargetChanged</code></li>
+<li><code>OnClick</code></li>
+<li><code>OnLeave</code></li>
+</ul>
+<p>Bad examples:</p>
+<ul>
+<li><code>OnData</code></li>
+<li><code>OnTarget</code></li>
+<li><code>HandleMessage</code></li>
+<li><code>HandleDeath</code></li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="3315-remote-procedure-calls-should-be-prefixed-with-target">3.3.1.5 Remote Procedure Calls Should Be Prefixed With Target</h4>
+<p>Any time an RPC is created, it should be prefixed with either <code>Server</code>, <code>Client</code>, or <code>Multicast</code>. No exceptions.</p>
+<p>After the prefix, follow all other rules regarding function naming.</p>
+<p>Good examples:</p>
+<ul>
+<li><code>ServerFireWeapon</code></li>
+<li><code>ClientNotifyDeath</code></li>
+<li><code>MulticastSpawnTracerEffect</code></li>
+</ul>
+<p>Bad examples:</p>
+<ul>
+<li><code>FireWeapon</code> - Does not indicate its an RPC of some kind.</li>
+<li><code>ServerClientBroadcast</code> - Confusing.</li>
+<li><code>AllNotifyDeath</code> - Use <code>Multicast</code>, never <code>All</code>.</li>
+<li><code>ClientWeapon</code> - No verb, ambiguous.</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="332-all-functions-must-have-return-nodes">3.3.2 All Functions Must Have Return Nodes</h4>
+<p>All functions must have return nodes, no exceptions.</p>
+<p>Return nodes explicitly note that a function has finished its execution. In a world where blueprints can be filled with <code>Sequence</code>, <code>ForLoopWithBreak</code>, and backwards reroute nodes, explicit execution flow is important for readability, maintenance, and easier debugging.</p>
+<p>The Blueprint compiler is able to follow the flow of execution and will warn you if there is a branch of your code with an unhandled return or bad flow if you use return nodes.</p>
+<p>In situations like where a programmer may add a pin to a Sequence node or add logic after a for loop completes but the loop iteration might return early, this can often result in an accidental error in code flow. The warnings the Blueprint compiler will alert everyone of these issues immediately.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="333-no-function-should-have-more-than-50-nodes">3.3.3 No Function Should Have More Than 50 Nodes</h4>
+<p>Simply, no function should have more than 50 nodes. Any function this big should be broken down into smaller functions for readability and ease of maintenance.</p>
+<p>The following nodes are not counted as they are deemed to not increase function complexity:</p>
+<ul>
+<li>Comment</li>
+<li>Route</li>
+<li>Cast</li>
+<li>Getting a Variable</li>
+<li>Breaking a Struct</li>
+<li>Function Entry</li>
+<li>Self</li>
+</ul>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="334-all-public-functions-should-have-a-description">3.3.4 All Public Functions Should Have A Description</h4>
+<p>This rule applies more to public facing or marketplace blueprints, so that others can more easily navigate and consume your blueprint API.</p>
+<p>Simply, any function that has an access specificer of Public should have its description filled out.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="335-all-custom-static-plugin-blueprintcallable-functions-must-be-categorized-by-plugin-name">3.3.5 All Custom Static Plugin <code>BlueprintCallable</code> Functions Must Be Categorized By Plugin Name</h4>
+<p>If your project includes a plugin that defines <code>static</code> <code>BlueprintCallable</code> functions, they should have their category set to the plugin&rsquo;s name or a subset category of the plugin&rsquo;s name.</p>
+<p>For example, <code>Zed Camera Interface</code> or <code>Zed Camera Interface | Image Capturing</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="34-blueprint-graphs">3.4 Blueprint Graphs</h3>
+<p>This section covers things that apply to all Blueprint graphs.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="341-no-spaghetti">3.4.1 No Spaghetti</h4>
+<p>Wires should have clear beginnings and ends. You should never have to mentally untangle wires to make sense of a graph. Many of the following sections are dedicated to reducing spaghetti.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="342-align-wires-not-nodes">3.4.2 Align Wires Not Nodes</h4>
+<p>Always align wires, not nodes. You can&rsquo;t always control the size and pin location on a node, but you can always control the location of a node and thus control the wires. Straight wires provide clear linear flow. Wiggly wires wear wits wickedly. You can straighten wires by using the Straighten Connections command with BP nodes selected. Hotkey: Q</p>
+<p>Good example: The tops of the nodes are staggered to keep a perfectly straight white exec line.<br>
+<img src="https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-good.png?raw=true" alt="Aligned By Wires" title="Aligned By Wires"></p>
+<p>Bad Example: The tops of the nodes are aligned creating a wiggly white exec line.<br>
+<img src="https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-bad.png?raw=true" alt="Bad" title="Wiggly"></p>
+<p>Acceptable Example: Certain nodes might not cooperate no matter how you use the alignment tools. In this situation, try to minimize the wiggle by bringing the node in closer.<br>
+<img src="https://github.com/Allar/ue5-style-guide/blob/main/images/bp-graphs-align-wires-acceptable.png?raw=true" alt="Acceptable" title="Acceptable"></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="343-white-exec-lines-are-top-priority">3.4.3 White Exec Lines Are Top Priority</h4>
+<p>If you ever have to decide between straightening a linear white exec line or straightening data lines of some kind, always straighten the white exec line.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="344-graphs-should-be-reasonably-commented">3.4.4 Graphs Should Be Reasonably Commented</h4>
+<p>Blocks of nodes should be wrapped in comments that describe their higher-level behavior. While every function should be well named so that each individual node is easily readable and understandable, groups of nodes contributing to a purpose should have their purpose described in a comment block. If a function does not have many blocks of nodes and its clear that the nodes are serving a direct purpose in the function&rsquo;s goal, then they do not need to be commented as the function name and  description should suffice.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="345-graphs-should-handle-casting-errors-where-appropriate">3.4.5 Graphs Should Handle Casting Errors Where Appropriate</h4>
+<p>If a function or event assumes that a cast always succeeds, it should appropriately report a failure in logic if the cast fails. This lets others know why something that is &lsquo;supposed to work&rsquo; doesn&rsquo;t. A function should also attempt a graceful recover after a failed cast if it&rsquo;s known that the reference being casted could ever fail to be casted.</p>
+<p>This does not mean every cast node should have its failure handled. In many cases, especially events regarding things like collisions, it is expected that execution flow terminates on a failed cast quietly.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="346-graphs-should-not-have-any-dangling--loose--dead-nodes">3.4.6 Graphs Should Not Have Any Dangling / Loose / Dead Nodes</h4>
+<p>All nodes in all blueprint graphs must have a purpose. You should not leave dangling blueprint nodes around that have no purpose or are not executed.</p>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="4-static-meshes">4. Static Meshes</h2>
+<p>This section will focus on Static Mesh assets and their internals.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="41-static-mesh-uvs">4.1 Static Mesh UVs</h3>
+<p>If Linter is reporting bad UVs and you can&rsquo;t seem to track it down, open the resulting <code>.log</code> file in your project&rsquo;s <code>Saved/Logs</code> folder for exact details as to why it&rsquo;s failing. I am hoping to include these messages in the Lint report in the future.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="411-all-meshes-must-have-uvs">4.1.1 All Meshes Must Have UVs</h4>
+<p>Pretty simple. All meshes, regardless how they are to be used, should not be missing UVs.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="412-all-meshes-must-not-have-overlapping-uvs-for-lightmaps">4.1.2 All Meshes Must Not Have Overlapping UVs for Lightmaps</h4>
+<p>Pretty simple. All meshes, regardless how they are to be used, should have valid non-overlapping UVs.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="42-lods-should-be-set-up-correctly">4.2 LODs Should Be Set Up Correctly</h3>
+<p>This is a subjective check on a per-project basis, but as a general rule any mesh that can be seen at varying distances should have proper LODs.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="43-modular-socketless-assets-should-snap-to-the-grid-cleanly">4.3 Modular Socketless Assets Should Snap To The Grid Cleanly</h3>
+<p>This is a subjective check on a per-asset basis, however any modular socketless assets should snap together cleanly based on the project&rsquo;s grid settings.</p>
+<p>It is up to the project whether to snap based on a power of 2 grid or on a base 10 grid. However if you are authoring modular socketless assets for the marketplace, Epic&rsquo;s requirement is that they snap cleanly when the grid is set to 10 units or bigger.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="44-all-meshes-must-have-collision">4.4 All Meshes Must Have Collision</h3>
+<p>Regardless of whether an asset is going to be used for collision in a level, all meshes should have proper collision defined. This helps the engine with things such as bounds calculations, occlusion, and lighting. Collision should also be well-formed to the asset.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="45-all-meshes-should-be-scaled-correctly">4.5 All Meshes Should Be Scaled Correctly</h3>
+<p>This is a subjective check on a per-project basis, however all assets should be scaled correctly to their project. Level designers or blueprint authors should not have to tweak the scale of meshes to get them to confirm in the editor. Scaling meshes in the engine should be treated as a scale override, not a scale correction.</p>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="5-niagara">5. Niagara</h2>
+<p>This section will focus on Niagara assets and their internals.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="51-no-spaces-ever">5.1 No Spaces, Ever</h3>
+<p>As mentioned in <a href="#00">00.1 Forbidden Identifiers</a>, spaces and all white space characters are forbidden in identifiers. This is especially true for Niagara systems as it makes working with things significantly harder if not impossible when working with HLSL or other means of scripting within Niagara and trying to reference an identifier.</p>
+<p>(Original Contribution by <a href="https://github.com/Allar/ue5-style-guide/issues/58">@dunenkoff</a>)</p>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="6-levels--maps">6. Levels / Maps</h2>
+<p><a href="#terms-level-map">See Terminology Note</a> regarding &ldquo;levels&rdquo; vs &ldquo;maps&rdquo;.</p>
+<p>This section will focus on Level assets and their internals.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="61-no-errors-or-warnings">6.1 No Errors Or Warnings</h3>
+<p>All levels should load with zero errors or warnings. If a level loads with any errors or warnings, they should be fixed immediately to prevent cascading issues.</p>
+<p>You can run a map check on an open level in the editor by using the console command &ldquo;map check&rdquo;.</p>
+<p>Please note: Linter is even more strict on this than the editor is currently, and will catch load errors that the editor will resolve on its own.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="62-lighting-should-be-built">6.2 Lighting Should Be Built</h3>
+<p>It is normal during development for levels to occasionally not have lighting built. When doing a test/internal/shipping build or any build that is to be distributed however, lighting should always be built.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="63-no-player-visible-z-fighting">6.3 No Player Visible Z Fighting</h3>
+<p>Levels should not have any <a href="https://en.wikipedia.org/wiki/Z-fighting">z-fighting</a> in all areas visible to the player.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="64-marketplace-specific-rules">6.4 Marketplace Specific Rules</h3>
+<p>If a project is to be sold on the UE4 Marketplace, it must follow these rules.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="641-overview-level">6.4.1 Overview Level</h4>
+<p>If your project contains assets that should be visualized or demoed, you must have a map within your project that contains the name &ldquo;Overview&rdquo;.</p>
+<p>This overview map, if it is visualizing assets, should be set up according to <a href="http://help.epicgames.com/customer/en/portal/articles/2592186-marketplace-submission-guidelines-preparing-your-assets#Required%20Levels%20and%20Maps">Epic&rsquo;s guidelines</a>.</p>
+<p>For example, <code>InteractionComponent_Overview</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h4 id="642-demo-level">6.4.2 Demo Level</h4>
+<p>If your project contains assets that should be demoed or come with some sort of tutorial, you must have a map within your project that contains the name &ldquo;Demo&rdquo;. This level should also contain documentation within it in some form that illustrates how to use your project. See Epic&rsquo;s Content Examples project for good examples on how to do this.</p>
+<p>If your project is a gameplay mechanic or other form of system as opposed to an art pack, this can be the same as your &ldquo;Overview&rdquo; map.</p>
+<p>For example, <code>InteractionComponent_Overview_Demo</code>, <code>ExplosionKit_Demo</code>.</p>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h2 id="7-textures">7. Textures</h2>
+<p>This section will focus on Texture assets and their internals.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="71-dimensions-are-powers-of-2">7.1 Dimensions Are Powers of 2</h3>
+<p>All textures, except for UI textures, must have its dimensions in multiples of powers of 2. Textures do not have to be square.</p>
+<p>For example, <code>128x512</code>, <code>1024x1024</code>, <code>2048x1024</code>, <code>1024x2048</code>, <code>1x512</code>.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="72-texture-density-should-be-uniform">7.2 Texture Density Should Be Uniform</h3>
+<p>All textures should be of a size appropriate for their standard use case. Appropriate texture density varies from project to project, but all textures within that project should have a consistent density.</p>
+<p>For example, if a project&rsquo;s texture density is 8 pixel per 1 unit, a texture that is meant to be applied to a 100x100 unit cube should be 1024x1024, as that is the closest power of 2 that matches the project&rsquo;s texture density.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="73-textures-should-be-no-bigger-than-8192">7.3 Textures Should Be No Bigger than 8192</h3>
+<p>No texture should have a dimension that exceeds 8192 in size, unless you have a very explicit reason to do so. Often, using a texture this big is simply just a waste of resources.</p>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted -->\ <!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<h3 id="74-textures-should-be-grouped-correctly">7.4 Textures Should Be Grouped Correctly</h3>
+<p>Every texture has a Texture Group property used for LODing, and this should be set correctly based on its use. For example, all UI textures should belong in the UI texture group.</p>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h2 id="major-contributors">Major Contributors</h2>
+<ul>
+<li><a href="http://allarsblog.com">Michael Allar</a>: <a href="https://github.com/Allar">GitHub</a>, <a href="https://twitter.com/michaelallar">Twitter</a></li>
+<li><a href="https://github.com/CosmoMyzrailGorynych">CosmoMyzrailGorynych</a></li>
+<li><a href="https://github.com/billymcguffin">billymcguffin</a></li>
+<li><a href="https://github.com/akenatsu">akenatsu</a></li>
+</ul>
+<h2 id="license">License</h2>
+<p>Copyright (c) 2016 Gamemakin LLC</p>
+<p>See <a href="/LICENSE">LICENSE</a></p>
+<p><strong><a href="#table-of-contents">⬆ Back to Top</a></strong></p>
+<h2 id="amendments">Amendments</h2>
+<p>We encourage you to fork this guide and change the rules to fit your team&rsquo;s style guide. Below, you may list some amendments to the style guide. This allows you to periodically update your style guide without having to deal with merge conflicts.</p>
+<h1 id="heading">};</h1>
+<p>#docs ${docs}</p>
+<div class="edit-meta">
+Last updated on 4 Jan 2026
+
+
+<br>
+Published on 20 Dec 2025
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/docs/2.-package-architecture/" title="2. Package Architecture"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - 2. Package Architecture</a>
+<a class="nav nav-next" href="http://localhost:1313/docs/6.-sound-effects/" title="6. Sound Effects">Next - 6. Sound Effects <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="http://localhost:1313/">Home</a></li>
+
+<li class="parent"><a href="http://localhost:1313/docs/">Docs</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="http://localhost:1313/docs/1.-unreal-basics/">1. Unreal Basics</a></li>
+<li class=""><a href="http://localhost:1313/docs/2.-package-architecture/">2. Package Architecture</a></li>
+<li class="active"><a href="http://localhost:1313/docs/a1.-recommended-style-guide/">A1. Recommended Style Guide</a></li>
+<li class=""><a href="http://localhost:1313/docs/6.-sound-effects/">6. Sound Effects</a></li>
+<li class=""><a href="http://localhost:1313/docs/5.-visual-effects/">5. Visual Effects</a></li>
+<li class=""><a href="http://localhost:1313/docs/4.-animations/">4. Animations</a></li>
+<li class=""><a href="http://localhost:1313/docs/3.-mesh-assets/">3. Mesh Assets</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>

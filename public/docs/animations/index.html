@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Animations - UE5 Template | Game Feel @ DigiPen</title>
+<meta name="generator" content="Hugo 0.154.2">
+<link href="http://localhost:1313//index.xml" rel="alternate" type="application/rss+xml">
+<link rel="canonical" href="http://localhost:1313/docs/animations/">
+<link rel="stylesheet" href="http://localhost:1313/css/theme.min.css">
+<link rel="stylesheet" href="http://localhost:1313/css/chroma.min.css">
+<script defer src="http://localhost:1313//js/fontawesome6/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery.easing@1.4.1/jquery.easing.min.js" integrity="sha256-H3cjtrm/ztDeuhCN9I4yh4iN2Ybx/y1RM7rMmAesA0k=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js" integrity="sha256-4XodgW4TwIJuDtf+v6vDJ39FVxI0veC/kSCCmnFp7ck=" crossorigin="anonymous"></script>
+<script src="http://localhost:1313/js/bundle.js"></script><style>
+:root {}
+</style>
+<meta property="og:url" content="http://localhost:1313/docs/animations/">
+  <meta property="og:site_name" content="UE5 Template | Game Feel @ DigiPen">
+  <meta property="og:title" content="Animations">
+  <meta property="og:description" content="Animations are a little tricker in Unreal than other commercial engines. This page is for animating skeletal meshes; to animate static meshes, use a level sequence. This guide centers Mixamo animations. If you are using animations from other sources and get lost with these steps, talk to a TA for help.
+Quick Start If your animation only plays once when called, i.e. attacks or getting hit, use [animation montages](#Animation Montages). If your animation loops until something changes, i.e. running or dying, use [ABP state machines](#State Machines).">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:published_time" content="2025-07-17T18:33:15+00:00">
+    <meta property="article:modified_time" content="2026-01-04T15:41:27+00:00">
+    <meta property="article:tag" content="Docs">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Animations">
+  <meta name="twitter:description" content="Animations are a little tricker in Unreal than other commercial engines. This page is for animating skeletal meshes; to animate static meshes, use a level sequence. This guide centers Mixamo animations. If you are using animations from other sources and get lost with these steps, talk to a TA for help.
+Quick Start If your animation only plays once when called, i.e. attacks or getting hit, use [animation montages](#Animation Montages). If your animation loops until something changes, i.e. running or dying, use [ABP state machines](#State Machines).">
+
+  <meta itemprop="name" content="Animations">
+  <meta itemprop="description" content="Animations are a little tricker in Unreal than other commercial engines. This page is for animating skeletal meshes; to animate static meshes, use a level sequence. This guide centers Mixamo animations. If you are using animations from other sources and get lost with these steps, talk to a TA for help.
+Quick Start If your animation only plays once when called, i.e. attacks or getting hit, use [animation montages](#Animation Montages). If your animation loops until something changes, i.e. running or dying, use [ABP state machines](#State Machines).">
+  <meta itemprop="datePublished" content="2025-07-17T18:33:15+00:00">
+  <meta itemprop="dateModified" content="2026-01-04T15:41:27+00:00">
+  <meta itemprop="wordCount" content="979">
+  <meta itemprop="keywords" content="Docs"></head>
+<body>
+
+<div class="container"><header>
+<h1>UE5 Template | Game Feel @ DigiPen</h1>
+</header>
+
+
+<div class="content-container">
+<main><h1>Animations</h1>
+<p>Animations are a little tricker in Unreal than other commercial engines. This page is for animating skeletal meshes; to animate static meshes, use a level sequence. This guide centers <strong>Mixamo</strong> animations. If you are using animations from other sources and get lost with these steps, talk to a TA for help.</p>
+<h3 id="quick-start">Quick Start</h3>
+<p>If your animation only plays once when called, i.e. attacks or getting hit, use [animation montages](#Animation Montages). If your animation loops until something changes, i.e. running or dying, use [ABP state machines](#State Machines).</p>
+<h2 id="sequences">Sequences</h2>
+<p>An animation sequence is just an animation clip. It stores the data for singular animations.</p>
+<p>You can get these clips from Mixamo. Hit the download button, and download <strong>without skin.</strong> This means it&rsquo;s just downloading the poses, not the full mesh.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_1.png" alt=""><br>
+Then, go to Unreal. Import the FBX with the <strong>Import button</strong> in the Content Browser. It should bring up the following pop-up. You <strong>must</strong>: (a) select a <strong>compatible skeleton</strong> (if it&rsquo;s from Mixamo, use <code>SKEL_Xbot</code>); (b) <strong>import it with a Z rotation of -90</strong> (otherwise it will be sideways).<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_2.png" alt=""><br>
+Finally, rename the asset. The standard used in this project is <code>A_AssetName</code> (the prefix A_ is used for all animation sequences).</p>
+<div class="page-break" style="page-break-before: always;"></div>
+<h2 id="animation-blueprints">Animation Blueprints</h2>
+<p>Animation blueprints, or ABPs, are the brains of Unreal blends animations. The idea is that you have a base pose, which plugs into nodes that modify or blend it, which plugs into the output.</p>
+<blockquote>
+<p>For animations that change based on a variable (i.e. <code>bIsRunning</code>), use a state machine. For animations that play once when an action happens, use an animation montage.</p>
+</blockquote>
+<p>First, create an ABP from your Content Browser. It will ask you which skeleton to use; <strong>use the same skeleton as your animation sequences.</strong> In Mixamo&rsquo;s case, that is <code>SKEL_Xbot</code>. You should now see something similar to this.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_3.png" alt=""><br>
+<strong>Output pose</strong> tells the engine what to actually show in-game. To give it a pose, we need to add an animation to it. The simple way to do this is to <strong>drag an sequence into the graph, and connect it.</strong> When the preview on the left tells you to, recompile the animation and it should show up now.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_4.png" alt=""></p>
+<h2 id="state-machines">State Machines</h2>
+<p>This is how you connect animations that <strong>play based on variables</strong>. An example of this is switching between an idle and running animation.</p>
+<p>Start by making a state machine. Right click the background and look up &ldquo;state machine.&rdquo; Connect the pin to the output pose.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_5.png" alt=""><br>
+You can double click to enter the state machine. You will see only an <strong>entry</strong> node; that will connect to your starting state. <strong>Add states by dragging sequences from Asset Browser or Content Browser windows.</strong> Your cursor will have a bad symbol on it; don&rsquo;t worry &ndash; that just happens for some reason.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_6.png" alt=""><br>
+Think of each state as one animation you want. We need to connect between them to switch between. If you drag from the light gray border of each state, you can make <strong>transitions.</strong> They only go one way &ndash; if you want to go back and forth, you need two transitions.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_7.png" alt=""><br>
+Now, we need to tell it when to switch. If you double click on the transition, you can add a <strong>rule.</strong> When you plug &ldquo;true&rdquo; into the result, the transition will start. <strong>You can make variables for this in the variables tab on the left in &ldquo;My Blueprint&rdquo;.</strong></p>
+<blockquote>
+<p>[!warning] Troubleshooting<br>
+<strong>The rule has to evaluate to true to happen</strong>. This means if you want the transition to happen if a variable is false, you should hook it up as GET VARIABLE -&gt; NOT -&gt; RESULT.</p>
+</blockquote>
+<p><img src="/ob/Images/Anim/Tutorial_Anim_8.png" alt=""><br>
+Once you&rsquo;ve added both rules, you can test your state machine. Compile the blueprint; the preview window should automatically start. By default, my character begins in idle. I can then use the &ldquo;Animation Preview Editor&rdquo; tab to click the boolean on and off. <strong>If your animation isn&rsquo;t looping, double click your animation state and make sure Loop is turned on.</strong><br>
+<img src="/ob/Images/Anim/Tutorial_Anim_9.png" alt=""></p>
+<div class="page-break" style="page-break-before: always;"></div>
+<h2 id="animation-montages">Animation Montages</h2>
+<p>This is how you connect animations that <strong>play when an event happens.</strong> These are a little tricky, so try to pay attention to the examples in the project.</p>
+<p>First, we need to add an <strong>animation slot</strong>. They aren&rsquo;t intuitive, but it lets us override parts of the source motion (the usual pose for your character). <em>You can use a state machine as a source motion</em>.* Go to <strong>Window</strong> at the top of the editor, find &ldquo;Anim Slot Manager.&rdquo;<img src="/ob/Images/Anim/Tutorial_Anim_10.png" alt=""><br>
+In the slot manager, <strong>add a new slot.</strong> I called mine &ldquo;CharacterAction&rdquo;. Note that slots appear for any asset using the same skeleton, so you can reuse them.<br>
+Then, <strong>add a slot node between the source motion and the output.</strong> Right-click the background and type in &ldquo;slot&rdquo;; you will see a Default Slot node. Add that, then look at details on the right. Swap the slot to the one you just made. All together, it should look like this.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_11.png" alt=""><br>
+Now, we need to create an <strong>Animation Montage</strong> asset. Go to your content browser and search &ldquo;Animation Montage.&rdquo; It&rsquo;ll ask you for a skeleton to use; <strong>use the same skeleton as your animation sequence</strong>. Make sure you name the new asset (<code>AM_Name</code> is the standard recommended for this project).<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_12.png" alt=""><br>
+In the new window that spawns, you need to <strong>make sure that you are using the right slot</strong>. On the timeline (seen below), there is a dropdown on your slot field. Click it, go to &ldquo;Slot Name,&rdquo; and <strong>choose the slot you created</strong>.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_13.png" alt=""><br>
+Then, <strong>drag your animation sequence</strong> from the Asset Browser or Content Browser to <strong>add it to the timeline</strong>.<br>
+<img src="/ob/Images/Anim/Tutorial_Anim_14.png" alt=""></p>
+<div class="page-break" style="page-break-before: always;"></div>
+<h2 id="animation-notifies">Animation Notifies</h2>
+<p>Montages aren&rsquo;t just for animating; they have gameplay purposes as well. <strong>Notifies</strong> are a blueprint class that can be called from the &ldquo;notifies&rdquo; track in montages and other animation assets.</p>
+<p>Unintuitively, the workflow for notifies is: broadcast notify from montage -&gt; notify asset calls event on mesh owner -&gt; mesh owner executes event.</p>
+<p>#docs ${docs}</p>
+<div class="edit-meta">
+Last updated on 4 Jan 2026
+
+
+<br>
+Published on 17 Jul 2025
+<br></div><nav class="pagination"><a class="nav nav-prev" href="http://localhost:1313/docs/mesh-assets/" title="Mesh Assets"><i class="fas fa-arrow-left" aria-hidden="true"></i>&nbsp;Prev - Mesh Assets</a>
+<a class="nav nav-next" href="http://localhost:1313/docs/visual-effects/" title="Visual Effects">Next - Visual Effects <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+</nav><footer><p class="powered">Powered by <a href="https://gohugo.io">Hugo</a>. Theme by <a href="https://themes.gohugo.io/hugo-theme-techdoc/">TechDoc</a>. Designed by <a href="https://github.com/thingsym/hugo-theme-techdoc">Thingsym</a>.</p>
+</footer>
+</main>
+<div class="sidebar">
+
+<nav class="open-menu">
+<ul>
+<li class=""><a href="http://localhost:1313/">Home</a></li>
+
+<li class="parent"><a href="http://localhost:1313/docs/">Docs</a>
+  
+<ul class="sub-menu">
+<li class=""><a href="http://localhost:1313/docs/unreal-basics/">Unreal Basics</a></li>
+<li class=""><a href="http://localhost:1313/docs/package-architecture/">Package Architecture</a></li>
+<li class=""><a href="http://localhost:1313/docs/mesh-assets/">Mesh Assets</a></li>
+<li class="active"><a href="http://localhost:1313/docs/animations/">Animations</a></li>
+<li class=""><a href="http://localhost:1313/docs/visual-effects/">Visual Effects</a></li>
+<li class=""><a href="http://localhost:1313/docs/sound-effects/">Sound Effects</a></li>
+<li class=""><a href="http://localhost:1313/docs/appendix-1.-recommended-style-guide/">Appendix 1. Recommended Style Guide</a></li>
+</ul>
+  
+</li>
+</ul>
+</nav>
+
+
+
+<div class="sidebar-footer"></div>
+</div>
+
+</div><a href="#" id="backtothetop-fixed" class="backtothetop"
+ data-backtothetop-duration="600"
+ data-backtothetop-easing="easeOutQuart"
+ data-backtothetop-fixed-fadeIn="1000"
+ data-backtothetop-fixed-fadeOut="1000"
+ data-backtothetop-fixed-bottom="10"
+ data-backtothetop-fixed-right="20">
+<span class="fa-layers fa-fw">
+<i class="fas fa-circle"></i>
+<i class="fas fa-arrow-circle-up"></i>
+</span></a>
+</div>
+</body>
+</html>
