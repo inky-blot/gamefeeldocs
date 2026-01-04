@@ -2,60 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>UE5 Template | Game Feel @ DigiPen</title>
-    <link>http://localhost:1313/</link>
+    <link>http://localhost:1313/gamefeeldocs/</link>
     <description>Recent content on UE5 Template | Game Feel @ DigiPen</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>Copyright (C) 2025, DigiPen Institute of Technology</copyright>
     <lastBuildDate>Sun, 04 Jan 2026 15:44:58 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/gamefeeldocs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Unreal Basics</title>
-      <link>http://localhost:1313/docs/unreal-basics/</link>
+      <link>http://localhost:1313/gamefeeldocs/docs/unreal-basics/</link>
       <pubDate>Sat, 02 Aug 2025 01:07:10 +0000</pubDate>
-      <guid>http://localhost:1313/docs/unreal-basics/</guid>
+      <guid>http://localhost:1313/gamefeeldocs/docs/unreal-basics/</guid>
       <description>&lt;blockquote&gt;&#xD;&#xA;    You can skip this page if you already know Unreal.&#xD;&#xA;&lt;/blockquote&gt;&lt;p&gt;Unreal is a steep learning curve. Unlike Unity or Godot where you largely build your own project architecture, &lt;strong&gt;Unreal already has a system for everything.&lt;/strong&gt; Having that functionality out-of-the-box lets you get something on-screen and looking great very quickly. &lt;strong&gt;However, you then need specialized knowledge about how to use each sub-system.&lt;/strong&gt; This is less of an issue on a team, where the burden of expertise is shared; when working solo, all that burden falls back on you.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Package Architecture</title>
-      <link>http://localhost:1313/docs/package-architecture/</link>
+      <link>http://localhost:1313/gamefeeldocs/docs/package-architecture/</link>
       <pubDate>Sun, 21 Dec 2025 21:47:05 +0000</pubDate>
-      <guid>http://localhost:1313/docs/package-architecture/</guid>
+      <guid>http://localhost:1313/gamefeeldocs/docs/package-architecture/</guid>
       <description>&lt;blockquote&gt;&#xD;&#xA;    This section is the most important information in this documentation. It is recommended you at least skim this page before starting and/or asking for help.&#xD;&#xA;&lt;/blockquote&gt;&lt;p&gt;All template related objects will be located in the top-level folder, \content\template.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Top-level blueprints (i.e. &lt;code&gt;BP_Player&lt;/code&gt; and &lt;code&gt;BP_Enemy&lt;/code&gt;) should be used as containers &amp;ndash; a place to combine your components.&lt;/li&gt;&#xA;&lt;li&gt;Individual behaviors have been encapsulated to components (i.e. &lt;code&gt;BP_DamageableComponent&lt;/code&gt;).&#xA;&lt;ul&gt;&#xA;&lt;li&gt;To pass information up (i.e. from a component to its container BP), use a &lt;strong&gt;dispatcher&lt;/strong&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Weapons inherit from &lt;code&gt;BP_Weapon&lt;/code&gt;, which inherits from Skeletal Mesh Component.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;To add a weapon to the player, attach it as a child of the first person mesh.&lt;/li&gt;&#xA;&lt;li&gt;Switching between weapons is handled by the &lt;code&gt;BP_WeaponManagerComponent&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;li&gt;To make your own weapons, you should make a &lt;strong&gt;COPY OF&lt;/strong&gt; &lt;code&gt;BP_GenericWeapon&lt;/code&gt;. Copying it will preserve all the code inside, which you can use as a template.&lt;/li&gt;&#xA;&lt;li&gt;All weapons are given &lt;strong&gt;lifetime events&lt;/strong&gt; and relevant dispatchers, which can be used for setup or for listening for .&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Lifetime events for &lt;strong&gt;attacks&lt;/strong&gt; are included in each BP inheriting &lt;code&gt;BP_Weapon&lt;/code&gt;.&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Each attack has been given an event graph for organization.&lt;/li&gt;&#xA;&lt;li&gt;Calling lifetime events occurs semi-automatically in the template.&lt;/li&gt;&#xA;&lt;li&gt;One condition: somewhere you must call &lt;strong&gt;Event Attack End&lt;/strong&gt; or you&amp;rsquo;ll get stuck in the attack!&#xA;&lt;ul&gt;&#xA;&lt;li&gt;You can call the event through blueprints or use the existing animation notify, &lt;code&gt;BPN_AttackEnd&lt;/code&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Thrown weapons are unique. Any weapon that throws itself should be divided into a component (inheriting &lt;code&gt;BP_Weapon&lt;/code&gt; and held by the player) and an artifact (inheriting &lt;code&gt;AActor&lt;/code&gt; and spawned when thrown).&lt;/li&gt;&#xA;&lt;li&gt;By default, &lt;code&gt;BP_Player&lt;/code&gt; and &lt;code&gt;BP_Enemy&lt;/code&gt; implement interfaces that allow them to receive damage and knockback from certain attacks. If you add more enemies or physics actors, check if they need to implement any interfaces.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;importing-the-template&#34;&gt;Importing the Template&lt;/h1&gt;&#xA;&lt;p&gt;The UE5 template for Game Feel is distributed as a .zip file. Extract the archive to &lt;code&gt;[project_directory]\content&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Mesh Assets</title>
-      <link>http://localhost:1313/docs/mesh-assets/</link>
+      <link>http://localhost:1313/gamefeeldocs/docs/mesh-assets/</link>
       <pubDate>Thu, 17 Jul 2025 18:21:22 +0000</pubDate>
-      <guid>http://localhost:1313/docs/mesh-assets/</guid>
+      <guid>http://localhost:1313/gamefeeldocs/docs/mesh-assets/</guid>
       <description>&lt;p&gt;Mesh assets are the geometric information about a 3D object. Any 3D object visible in-game will require a mesh.&lt;/p&gt;&#xA;&lt;h2 id=&#34;types-of-mesh&#34;&gt;Types of Mesh&lt;/h2&gt;&#xA;&lt;p&gt;There are two types of mesh.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Static meshes&lt;/strong&gt; don&amp;rsquo;t bend or deform naturally, so you have limited options to animate them. These are the meshes you use for environments and such.&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Skeletal meshes&lt;/strong&gt; have bones and a skeleton, meaning somebody took the time to make sure the model could bend and twist and all that. These are what are used for characters, usually.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;blockquote&gt;&#xD;&#xA;    For this project, you are encouraged to use &lt;strong&gt;skeletal meshes&lt;/strong&gt; for your weapons and characters whenever possible.&#xD;&#xA;&lt;/blockquote&gt;&lt;p&gt;The skeleton your character uses is very important, as it determines which animations work with it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Animations</title>
-      <link>http://localhost:1313/docs/animations/</link>
+      <link>http://localhost:1313/gamefeeldocs/docs/animations/</link>
       <pubDate>Thu, 17 Jul 2025 18:33:15 +0000</pubDate>
-      <guid>http://localhost:1313/docs/animations/</guid>
+      <guid>http://localhost:1313/gamefeeldocs/docs/animations/</guid>
       <description>&lt;p&gt;Animations are a little tricker in Unreal than other commercial engines. This page is for animating skeletal meshes; to animate static meshes, use a level sequence. This guide centers &lt;strong&gt;Mixamo&lt;/strong&gt; animations. If you are using animations from other sources and get lost with these steps, talk to a TA for help.&lt;/p&gt;&#xA;&lt;h3 id=&#34;quick-start&#34;&gt;Quick Start&lt;/h3&gt;&#xA;&lt;p&gt;If your animation only plays once when called, i.e. attacks or getting hit, use [animation montages](#Animation Montages). If your animation loops until something changes, i.e. running or dying, use [ABP state machines](#State Machines).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Visual Effects</title>
-      <link>http://localhost:1313/docs/visual-effects/</link>
+      <link>http://localhost:1313/gamefeeldocs/docs/visual-effects/</link>
       <pubDate>Thu, 24 Jul 2025 11:59:23 +0000</pubDate>
-      <guid>http://localhost:1313/docs/visual-effects/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Niagara&lt;/strong&gt; is Unreal&amp;rsquo;s visual effect system. Each Niagara system is its own asset, allowing it to be used like a prefab. Each system is comprised of one or more &lt;strong&gt;emitters&lt;/strong&gt;, meaning you can have multiple particle styles or behaviors in the same system.&lt;/p&gt;&#xA;&lt;h2 id=&#34;creating-a-niagara-system&#34;&gt;Creating a Niagara System&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s build a simple dust cloud when the character kicks. Add a new asset in your content drawer, and select Niagara.&lt;br&gt;&#xA;&lt;img src=&#34;http://localhost:1313/ob/Images/VFX/Tutorials_VFX_1.png&#34; alt=&#34;&#34;&gt;&lt;br&gt;&#xA;In the following menu, choose a base for your system. I will use the &lt;strong&gt;directional burst&lt;/strong&gt;.&lt;br&gt;&#xA;&lt;img src=&#34;http://localhost:1313/ob/Images/VFX/Tutorials_VFX_2.png&#34; alt=&#34;&#34;&gt;&lt;br&gt;&#xA;Open the asset. On the graph, the blue node contains details about the whole system. The orange nodes are individual &lt;strong&gt;emitters&lt;/strong&gt;. Each emitter spits particles out in a different way. We only want our system to play once, so select the blue node and find &amp;ldquo;Loop Behavior&amp;rdquo; in the details; set it to &amp;ldquo;once.&amp;rdquo;&lt;br&gt;&#xA;&lt;img src=&#34;http://localhost:1313/ob/Images/VFX/Tutorials_VFX_3.png&#34; alt=&#34;&#34;&gt;&lt;span style=&#34;background:#ff4d4f&#34;&gt;FINISH THIS. NEED ATTRIBUTION FREE CLOUD SPRITE.&lt;/span&gt;&lt;/p&gt;</description>
+      <guid>http://localhost:1313/gamefeeldocs/docs/visual-effects/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Niagara&lt;/strong&gt; is Unreal&amp;rsquo;s visual effect system. Each Niagara system is its own asset, allowing it to be used like a prefab. Each system is comprised of one or more &lt;strong&gt;emitters&lt;/strong&gt;, meaning you can have multiple particle styles or behaviors in the same system.&lt;/p&gt;&#xA;&lt;h2 id=&#34;creating-a-niagara-system&#34;&gt;Creating a Niagara System&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s build a simple dust cloud when the character kicks. Add a new asset in your content drawer, and select Niagara.&lt;br&gt;&#xA;&lt;img src=&#34;http://localhost:1313/gamefeeldocs/ob/Images/VFX/Tutorials_VFX_1.png&#34; alt=&#34;&#34;&gt;&lt;br&gt;&#xA;In the following menu, choose a base for your system. I will use the &lt;strong&gt;directional burst&lt;/strong&gt;.&lt;br&gt;&#xA;&lt;img src=&#34;http://localhost:1313/gamefeeldocs/ob/Images/VFX/Tutorials_VFX_2.png&#34; alt=&#34;&#34;&gt;&lt;br&gt;&#xA;Open the asset. On the graph, the blue node contains details about the whole system. The orange nodes are individual &lt;strong&gt;emitters&lt;/strong&gt;. Each emitter spits particles out in a different way. We only want our system to play once, so select the blue node and find &amp;ldquo;Loop Behavior&amp;rdquo; in the details; set it to &amp;ldquo;once.&amp;rdquo;&lt;br&gt;&#xA;&lt;img src=&#34;http://localhost:1313/gamefeeldocs/ob/Images/VFX/Tutorials_VFX_3.png&#34; alt=&#34;&#34;&gt;&lt;span style=&#34;background:#ff4d4f&#34;&gt;FINISH THIS. NEED ATTRIBUTION FREE CLOUD SPRITE.&lt;/span&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sound Effects</title>
-      <link>http://localhost:1313/docs/sound-effects/</link>
+      <link>http://localhost:1313/gamefeeldocs/docs/sound-effects/</link>
       <pubDate>Wed, 30 Jul 2025 00:47:02 +0000</pubDate>
-      <guid>http://localhost:1313/docs/sound-effects/</guid>
+      <guid>http://localhost:1313/gamefeeldocs/docs/sound-effects/</guid>
       <description>&lt;p&gt;This template uses the default sound engine in Unreal. We did not prebuild support for FMOD or WWISE, and we heavily discourage adding them yourself.&lt;/p&gt;&#xA;&lt;p&gt;Spatialized audio means sounds that are literally emitted in space. Most sound effects are spatialized; audio without a physical representation, like UI sounds or background music, are not spatialized.&lt;/p&gt;&#xA;&lt;h3 id=&#34;good-to-knows&#34;&gt;Good to Knows&lt;/h3&gt;&#xA;&lt;p&gt;When you import a sound, such as a .WAV file, it begins as a &lt;strong&gt;Sound Wave asset&lt;/strong&gt;. We suggest prefixing your waves with &lt;code&gt;A_&lt;/code&gt;. Then, you can right-click the asset and select &amp;ldquo;Create Cue.&amp;rdquo; A &lt;strong&gt;Sound Cue asset&lt;/strong&gt; contains additional mixing information that can come in handy. We suggest also prefixing this as &lt;code&gt;A_&lt;/code&gt; and suffixing as &lt;code&gt;_Cue&lt;/code&gt;. **Cues are optional.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Appendix 1. Recommended Style Guide</title>
-      <link>http://localhost:1313/docs/appendix-1.-recommended-style-guide/</link>
+      <link>http://localhost:1313/gamefeeldocs/docs/appendix-1.-recommended-style-guide/</link>
       <pubDate>Sat, 20 Dec 2025 10:57:25 +0000</pubDate>
-      <guid>http://localhost:1313/docs/appendix-1.-recommended-style-guide/</guid>
+      <guid>http://localhost:1313/gamefeeldocs/docs/appendix-1.-recommended-style-guide/</guid>
       <description>&lt;blockquote&gt;&#xD;&#xA;    This document is a modified version of a third-party document. The original document is NOT affiliated with DigiPen Inst. or related persons. That document has been accessed and copied from &lt;a href=&#34;https://github.com/Allar/ue5-style-guide&#34;&gt;https://github.com/Allar/ue5-style-guide&lt;/a&gt; .&#xD;&#xA;&lt;/blockquote&gt;&lt;p&gt;Style guides are an outline of what assets in-engine should look like, in terms of development.&lt;/p&gt;&#xA;&lt;p&gt;If you do not already have a consistent style that works for you, it is heavily recommended that you practice using a style guide before leaving DigiPen. &lt;strong&gt;Following the style guide is entirely OPTIONAL. It is a tool; if it hurts more than it helps, do not use it.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
   </channel>

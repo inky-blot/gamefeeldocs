@@ -2,39 +2,39 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/docs/unreal-basics/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/unreal-basics/</loc>
     <lastmod>2026-01-04T15:40:33+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/package-architecture/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/package-architecture/</loc>
     <lastmod>2026-01-04T15:40:39+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/mesh-assets/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/mesh-assets/</loc>
     <lastmod>2026-01-04T15:41:11+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/animations/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/animations/</loc>
     <lastmod>2026-01-04T15:41:27+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/visual-effects/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/visual-effects/</loc>
     <lastmod>2026-01-04T15:41:39+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/sound-effects/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/sound-effects/</loc>
     <lastmod>2026-01-04T15:41:47+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/appendix-1.-recommended-style-guide/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/appendix-1.-recommended-style-guide/</loc>
     <lastmod>2026-01-04T15:44:58+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/</loc>
     <lastmod>2026-01-04T15:44:58+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/docs/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/docs/</loc>
     <lastmod>2026-01-04T15:44:58+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/docs/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/tags/docs/</loc>
     <lastmod>2026-01-04T15:44:58+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/tags/</loc>
     <lastmod>2026-01-04T15:44:58+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://localhost:1313/gamefeeldocs/categories/</loc>
   </url>
 </urlset>
